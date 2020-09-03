@@ -5,14 +5,16 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "commit": "npx cz"
   },
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^3.0.0-0",
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "vuex-persistedstate": "^3.1.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.33.0",
@@ -26,15 +28,23 @@
     "@vue/compiler-sfc": "^3.0.0-0",
     "@vue/eslint-config-standard": "^5.1.2",
     "@vue/eslint-config-typescript": "^5.0.2",
+    "babel-eslint": "^10.1.0",
+    "commitizen": "^4.2.1",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^7.0.0-0",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
-    "typescript": "~3.9.3"
+    "prettier": "^2.1.1",
+    "typescript": "~3.9.3",
+    "vue-property-decorator": "^9.0.0",
+    "vuex-persistedstate": "^3.1.0"
   },
   "eslintConfig": {
     "root": true,
@@ -55,5 +65,33 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog",
+      "disableScopeLowerCase": false,
+      "disableSubjectLowerCase": false,
+      "maxHeaderWidth": 100,
+      "maxLineWidth": 100,
+      "defaultType": "",
+      "defaultScope": "",
+      "defaultSubject": "",
+      "defaultBody": "",
+      "defaultIssues": "",
+      "types": {
+        "feat": {
+          "description": "新增功能",
+          "title": "新增"
+        },
+        "ci": {
+          "description": "部署相关",
+          "title": "CI/CD"
+        },
+        "fix": {
+          "description": "bug 修复",
+          "title": "修复"
+        }
+      }
+    }
+  }
 }
