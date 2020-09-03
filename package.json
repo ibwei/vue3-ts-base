@@ -1,12 +1,12 @@
 {
   "name": "vue3",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "commit": "npx cz",
     "docs": "typedoc --out ./docs/ ./src/ && npm run serve:docs",
     "serve:docs": "http-server ./docs -p 3001 -o"
