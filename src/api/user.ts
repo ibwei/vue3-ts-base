@@ -1,4 +1,8 @@
-import API from './request'
+import API from './axios'
+import ApiList from './apiList'
+
+const { user } = ApiList
+
 interface HttpParams {
   coinName: string
   cashName: string
@@ -13,12 +17,12 @@ export interface UserApi {
  * @todo Get the exchange rate of the current currency
  */
 class User {
-  register() {
-    /*     return API.get<{ data: string | { error: string } }>(`/market/${targetCoin}/${param.cashName.toLowerCase()}`, {
-       params: {
-         t: new Date().getTime()
-       }
-     }).then(({ data }) => data) */
+  async register(): Promise<any> {
+    return await API({
+      method: user.register.method,
+      url: user.register.url,
+      responseType: user.register.resType
+    })
   }
 }
 

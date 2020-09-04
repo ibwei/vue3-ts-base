@@ -1,0 +1,58 @@
+{
+  "path": "cz-conventional-changelog",
+  "disableScopeLowerCase": false,
+  "disableSubjectLowerCase": false,
+  "maxHeaderWidth": 100,
+  "maxLineWidth": 100,
+  "defaultType": "",
+  "defaultScope": "",
+  "defaultSubject": "",
+  "defaultBody": "",
+  "defaultIssues": "",
+  "types": {
+    "feat": {
+      "description": "新功能",
+      "title": "新增"
+    },
+    "fix": {
+      "description": "bug 修复",
+      "title": "修复"
+    },
+    "style": {
+      "description": "UI相关",
+      "title": "UI"
+    },
+    "refactor": {
+      "description": "代码重构",
+      "title": "重构"
+    },
+    "docs": {
+      "description": "文档更新",
+      "title": "文档"
+    },
+    "build": {
+      "description": "构建系统或者包依赖更新",
+      "title": "构建系统或者包依赖更新"
+    },
+    "ci": {
+      "description": "CI/CD,自动构建,持续集成相关",
+      "title": "CI/CD"
+    },
+    "test": {
+      "description": "测试用例相关",
+      "title": "测试"
+    },
+    "perf": {
+      "description": "优化",
+      "title": "优化"
+    },
+    "chore": {
+      "description": "非src或者测试文件的更新",
+      "title": "非 src 或者 测试文件的更新"
+    },
+    "revert": {
+      "description": "回到上一个版本",
+      "title": "回溯"
+    }
+  }
+}
