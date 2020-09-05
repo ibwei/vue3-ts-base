@@ -4,7 +4,10 @@ module.exports = {
     loaderOptions: {
       less: {
         globalVars: {},
-        srouceMap: IS_DEV
+        srouceMap: IS_DEV,
+        lessOptions: {
+          javascriptEnabled: true
+        }
       }
     }
   },

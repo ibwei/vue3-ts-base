@@ -1,6 +1,8 @@
 # 基于 vue2.x | vue3 的项目基础架构搭建
 
-说明: [x] 已完成 [ ] 未完成
+- [x] <font color="green">今日已完成</font>
+- [x] 之前完成
+- [ ] 未完成
 
 #### 主要用到的库
 
@@ -47,8 +49,8 @@
 
 #### UI 库
 
-- [ ] 添加 ant-design-vue,支持按需加载
-- [ ] 将 UI 库部分功能如 message 添加到根目录
+- [x] <font color="green">添加 ant-design-vue,支持组件按需加载</font>
+- [x] <font color="green">将 UI 库部分功能如 message 添加到根目录</font>
 
 #### 插件与常用工具函数
 
@@ -67,12 +69,16 @@
 
 - [x] eslint 代码检查,配置 prettier 格式化工具,使检查规则和格式化规则一致
 - [x] 新增提交规范 git cz commitizen,统一代码提交规范
-- [x] 在提交规范的基础上,增加版本更改历史,自动生成 changelog
 - [ ] 为没有 type 的库和变量添加 shims
+
+#### CI/CD
+
+- [ ] 配置自动构建/持续集成配置文件(与部署相关,需结合到具体项目部署情况)
 
 #### 文档
 
-- [ ] 使用 TYPEDOC 搭建项目文档应用 (typescript4 暂时有 bug)
+- [x] <font color="green">使用 TYPEDOC 搭建项目文档应用</font>
+- [x] 在提交规范的基础上,增加版本更改历史,自动生成 changelog
 - [x] 配置 http-server 启动文档应用
 
 #### 测试用例
