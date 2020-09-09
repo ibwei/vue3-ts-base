@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Book } from 'types'
+import { Book } from '@types'
 import User from './api/user'
 
 const App = defineComponent({
