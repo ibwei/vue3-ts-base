@@ -11,10 +11,12 @@ interface ApiListItemType {
 /** API 模块名  */
 type ApiModuleKey = 'user' | 'article'
 
-/** 模块名下的属性名  */
+/** API 模块>用户模块> 属性名  */
 type UserModuleKey = 'login' | 'register' | 'logout'
+/** API 模块>文章模块> 属性名  */
 type ArticleModuleKey = 'list'
 
+/** API 列表  */
 type ApiListItem = {
   user: { [key in UserModuleKey]: ApiListItemType }
   article: { [key in ArticleModuleKey]: ApiListItemType }

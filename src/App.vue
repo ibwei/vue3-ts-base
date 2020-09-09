@@ -16,11 +16,15 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { Book } from 'types'
+import User from './api/user'
 
 const App = defineComponent({
   created() {
     console.log(this)
     console.log('routerList', this.$store)
+    const b: Book = { pageName: '' }
+    User.login({ userName: 'b', password: '' })
   },
   data() {
     return {

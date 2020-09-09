@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import mutations from './mutations'
 import modules from './modules'
-import { StoreInstance } from '@/global'
+import { StoreInstance } from 'types'
 
 const store: StoreInstance = createStore({
   strict: true,

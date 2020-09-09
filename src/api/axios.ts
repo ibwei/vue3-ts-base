@@ -4,7 +4,7 @@ import Axios, { AxiosResponse, AxiosRequestConfig, AxiosError } from 'axios'
  * get status code
  * @param {AxiosResponse} response Axios  response object
  */
-const getErrorCode2text = (response: AxiosResponse) => {
+const getErrorCode2text = (response: AxiosResponse): string => {
   /** http status code */
   const code = response.status
   /** notice text */
@@ -17,33 +17,34 @@ const getErrorCode2text = (response: AxiosResponse) => {
       message = 'Unauthorized, please login'
       break
     case 403:
-      message = 'Access denied'
+      message = '拒绝访问'
       break
     case 404:
-      message = 'Request address error'
+      message = '访问资源不存在'
       break
     case 408:
-      message = 'Request timeout'
+      message = '请求超时'
       break
     case 500:
-      message = 'Internal server error'
+      message = '位置错误'
       break
     case 501:
-      message = 'Service not implemented'
+      message = '承载服务未实现'
       break
     case 502:
-      message = 'Gateway error'
+      message = '网关错误'
       break
     case 503:
-      message = 'Service is not available'
+      message = '服务暂不可用'
       break
     case 504:
-      message = 'Gateway timeout'
+      message = '网关超时'
       break
     case 505:
-      message = 'HTTP version is not supported'
+      message = '暂不支持的 HTTP 版本'
       break
     default:
+      message = '位置错误'
   }
   return message
 }
@@ -58,14 +59,6 @@ const service = Axios.create({
   baseURL: process.env.VUE_APP_BASE_URL,
   timeout: 10000
 })
-
-// request interceptors
-
-interface ApiResponse {
-  err_code: number
-  err_msg?: string
-  data?: any
-}
 
 /**
  * @description 请求发起前的拦截器

@@ -29,7 +29,7 @@
 
 #### 样式配置
 
-> 均通过 webpack 实现.
+> 均通过在 vue-cli 中配置 webpack 实现.
 
 - [x] 自动注入全局样式
 - [x] 配置全局 less 变量
@@ -49,8 +49,8 @@
 
 #### UI 库
 
-- [x] <font color="green">添加 ant-design-vue,支持组件按需加载</font>
-- [x] <font color="green">将 UI 库部分功能如 message 添加到根目录</font>
+- [x] 添加 ant-design-vue,支持组件按需加载
+- [x] 将 UI 库部分功能如 message 添加到每个组件实例
 
 #### 插件与常用工具函数
 
@@ -69,7 +69,7 @@
 
 - [x] eslint 代码检查,配置 prettier 格式化工具,使检查规则和格式化规则一致
 - [x] 新增提交规范 git cz commitizen,统一代码提交规范
-- [ ] 为没有 type 的库和变量添加 shims
+- [x] <font color="green">为没有 type 的库和变量添加 shims</font>
 
 #### CI/CD
 
@@ -77,7 +77,7 @@
 
 #### 文档
 
-- [x] <font color="green">使用 TYPEDOC 搭建项目文档应用</font>
+- [x] 使用 TYPEDOC 搭建项目文档应用
 - [x] 在提交规范的基础上,增加版本更改历史,自动生成 changelog
 - [x] 配置 http-server 启动文档应用
 
