@@ -5,7 +5,7 @@
     "typescript",
     "base"
   ],
-  "version": "0.1.6",
+  "version": "0.1.7",
   "types": "./@types/index.d.ts",
   "main": "dist/index.js",
   "license": "MIT",
