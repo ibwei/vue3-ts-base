@@ -3,6 +3,7 @@
     "target": "esnext",
     "module": "esnext",
     "strict": false,
+
     "declaration": true,
     "jsx": "preserve",
     "importHelpers": true,
@@ -13,8 +14,8 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": false,
     "baseUrl": "./",
-    "types": ["webpack-env"],
-    "typeRoots": ["@types"],
+    "types": ["webpack-env", "http-proxy"],
+    "typeRoots": ["@types", "./src/global.d.ts"],
     "paths": {
       "@/*": ["src/*"],
       "@views/*": ["src/views/*"],
