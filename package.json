@@ -1,10 +1,11 @@
 {
-  "name": "vue3-ts-base",
+  "name": "@types/vue3-ts-base",
   "version": "0.1.5",
-  "private": true,
+  "private": false,
   "author": "997132391",
   "types": "./@types/index.d.ts",
   "main": "dist/index.js",
+  "license": "MIT",
   "files": [
     "@types"
   ],
