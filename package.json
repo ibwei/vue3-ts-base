@@ -1,16 +1,11 @@
 {
-  "name": "@types/vue3-ts-base",
-  "version": "0.0.1",
-  "author": {
-    "name": "ibwei",
-    "email": "997132391@qq.com",
-    "url": "http://me.ibwei.com"
-  },
+  "name": "vue3-ts-base",
+  "version": "0.1.7",
   "types": "./@types/index.d.ts",
   "main": "dist/index.js",
   "license": "MIT",
   "publishConfig": {
-    "registry": "https://www.npmjs.com/package/vue3-ts-base"
+    "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "type": "git",
