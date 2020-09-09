@@ -1,9 +1,19 @@
 {
   "name": "vue3-ts-base",
-  "version": "0.1.7",
+  "keywords": [
+    "vue3",
+    "typescript",
+    "base"
+  ],
+  "version": "0.1.6",
   "types": "./@types/index.d.ts",
   "main": "dist/index.js",
   "license": "MIT",
+  "author": {
+    "name": "ibwei",
+    "email": "997132391@qq.com",
+    "url": "http://me.ibwei.com"
+  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
