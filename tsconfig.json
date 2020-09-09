@@ -14,7 +14,7 @@
     "sourceMap": false,
     "baseUrl": "./",
     "types": ["webpack-env"],
-    "typeRoots": ["types"],
+    "typeRoots": ["@types"],
     "paths": {
       "@/*": ["src/*"],
       "@views/*": ["src/views/*"],
@@ -24,6 +24,6 @@
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "tests/**/*.ts", "tests/**/*.tsx", "./src/global.d.ts", "types/*.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "tests/**/*.ts", "tests/**/*.tsx", "./src/global.d.ts", "@types/*.ts"],
   "exclude": ["node_modules"]
 }

@@ -1,7 +1,6 @@
 {
-  "name": "@types/vue3-ts-base",
-  "version": "0.1.5",
-  "private": false,
+  "name": "@types/vue3-ts-basex",
+  "version": "0.1.6",
   "author": "997132391",
   "types": "./@types/index.d.ts",
   "main": "dist/index.js",
