@@ -25,7 +25,7 @@ const store: StoreInstance = createStore({
  * @param {any} msg - 当有 msg 参数时,视为赋值操作,触发 mutation,msg 则为要复制的数据.
  * @example 以操作 raceConfigType为例,读取操作: this.$store.__s('raceConfigType'),赋值操作:this.$store.__s('raceConfigType','add'), 更改app 下模块 theme,读取操作: this.$store.__s('app.theme'),赋值操作:this.$store.__s('app.theme','light')
  */
-store.save = (type: string, msg: any) => {
+store.__s = (type: string, msg: any) => {
   let _state: any = store.state
   if (!type) return store.state
   if (type.indexOf('.') === -1) {
@@ -60,7 +60,7 @@ store.save = (type: string, msg: any) => {
 }
 
 /** 读取getter 的操作  */
-store.get = (type: string): any => {
+store.__g = (type: string): any => {
   if (!type) return store.getters
   return store.getters[type]
 }

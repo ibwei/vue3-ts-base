@@ -20,11 +20,11 @@ import { Book } from '@types'
 import User from './api/user'
 
 const App = defineComponent({
-  created() {
+  async reated() {
     console.log(this)
     console.log('routerList', this.$store)
     const b: Book = { pageName: '' }
-    User.login({ userName: 'b', password: '' })
+    await User.login({ userName: 'b', password: '' })
   },
   data() {
     return {

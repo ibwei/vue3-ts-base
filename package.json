@@ -1,11 +1,12 @@
 {
   "name": "vue3-ts-base",
+  "description": "一个使用vue3+typescript 搭建的项目基础架构类型声明库",
   "keywords": [
     "vue3",
     "typescript",
     "base"
   ],
-  "version": "0.1.7",
+  "version": "0.1.8",
   "types": "./@types/index.d.ts",
   "main": "dist/index.js",
   "license": "MIT",
