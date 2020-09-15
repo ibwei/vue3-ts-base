@@ -18,6 +18,10 @@
       "description": "bug 修复",
       "title": "修复"
     },
+    "wip": {
+      "description": "功能正在开发中,提交以切换其他分支进行其他开发",
+      "title": "进行中"
+    },
     "style": {
       "description": "UI相关",
       "title": "UI"

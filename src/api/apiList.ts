@@ -1,5 +1,4 @@
 /** 所有的网络请求地址列表,方便集中维护 */
-
 import { Method, ResponseType } from 'axios'
 
 interface ApiListItemType {
@@ -13,6 +12,7 @@ type ApiModuleKey = 'user' | 'article'
 
 /** API 模块>用户模块> 属性名  */
 type UserModuleKey = 'login' | 'register' | 'logout'
+
 /** API 模块>文章模块> 属性名  */
 type ArticleModuleKey = 'list'
 

@@ -13,7 +13,7 @@ interface HttpParams {
  * @property {string} userName -用户名
  * @property {string} password -用户密码
  */
-interface loginParams {
+interface LoginParams {
   userName: string
   password: string
 }
@@ -23,7 +23,7 @@ interface loginParams {
  * @property {string} confirmPassword -确认密码
  * @property {string} validateCode -验证码
  */
-interface registerParams extends loginParams {
+interface RegisterParams extends LoginParams {
   confirmPassword: string
   validateCode: string
 }
@@ -36,16 +36,19 @@ export interface UserApi {
  * @example Axios.get(`https://api.abckey.com/market/${this.c_switchCashName}/${this.cash.toLowerCase()}&t=${new Date().getTime()}`)
  * @todo Get the exchange rate of the current currency
  */
-class User {
-  static async register(params: registerParams): Promise<any> {
+class UserService {
+  static async register(params: RegisterParams): Promise<any> {
     return await API({
       method: user.register.method,
       url: user.register.url,
-      responseType: user.register.resType
+      responseType: user.register.resType,
+      data: {
+        ...params
+      }
     })
   }
 
-  static async login(params: loginParams): Promise<any> {
+  static async login(params: LoginParams): Promise<any> {
     return await API({
       method: user.login.method,
       url: user.login.url,
@@ -57,4 +60,4 @@ class User {
   }
 }
 
-export default User
+export default UserService

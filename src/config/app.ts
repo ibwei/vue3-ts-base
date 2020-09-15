@@ -2,6 +2,7 @@
 import { message } from 'ant-design-vue'
 
 const AppConfig = {
-  $message: message
+  $message: message,
+  a: 1
 }
 export { AppConfig }

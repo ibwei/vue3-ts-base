@@ -11,7 +11,14 @@ declare module '@vue/runtime-core' {
     $router: Router
   }
 }
-declare interface x {
-  name: string
-  age: number
+
+declare global {
+  interface X {
+    name: string
+    age: number
+  }
+
+  interface X1 {
+    s: string
+  }
 }
