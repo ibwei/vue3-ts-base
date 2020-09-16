@@ -5,6 +5,7 @@ import store from './store'
 import { AppConfig } from './config/app'
 
 import { loadAtdComponent } from '@/plugins/antd'
+import { registeGlobalComponent } from './components/index'
 
 /** 导入第三方插件 */
 import '@/plugins'
@@ -15,5 +16,8 @@ app.config.globalProperties = AppConfig
 
 /** 手动注册 antd-vue 组件 */
 loadAtdComponent(app)
+
+/** 自动注册全局组件  */
+registeGlobalComponent(app)
 
 app.use(store).use(router).mount('#app')

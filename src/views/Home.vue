@@ -2,6 +2,7 @@
   <div>
     <span class="hello">hahahah</span>
     <hello-world msg="home" />
+    <full-loading :show="true" text="hehhe" />
   </div>
 </template>
 <script lang="ts">
@@ -14,6 +15,7 @@ const Home = defineComponent({
   },
   created() {
     console.log('routerList', this.$route)
+    console.log(this)
   },
   methods: {
     hello() {

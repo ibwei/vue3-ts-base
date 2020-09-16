@@ -1,6 +1,6 @@
 {
   "name": "vue3-ts-base",
-  "version": "0.1.8",
+  "version": "0.1.6",
   "description": "一个使用vue3+typescript 搭建的项目基础架构类型声明库",
   "author": {
     "name": "ibwei",
@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@types/chai": "^4.2.12",
+    "@types/lodash": "^4.14.161",
     "@types/mocha": "^8.0.3",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
