@@ -1,26 +1,31 @@
 <template>
   <div id="app">
+    <full-loading :show="fullLoading" text="hehhe" />
     <div id="nav">
-      <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link>|
-      <router-link to="/contact">Contact</router-link>
+      <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link> | <router-link to="/contact">Contact</router-link> |
+      <router-link to="/tests">组件测试</router-link>
     </div>
     <router-view />
   </div>
 </template>
 
 <script lang="ts">
-import { Book } from '@types'
 import { defineComponent } from 'vue'
 
 const App = defineComponent({
   data() {
     return {
-      book: { pageName: 'hah' } as Book,
+      book: { pageName: 'hah' },
       hello: 'iis'
     }
   },
   created() {
     console.log(this.$store)
+  },
+  computed: {
+    fullLoading() {
+      return this.$store.state.fullLoading
+    }
   }
 })
 

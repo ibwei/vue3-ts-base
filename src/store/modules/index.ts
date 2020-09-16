@@ -7,7 +7,6 @@ files.keys().forEach((key) => {
   if (key === './index.ts') return
   const path = key.replace(/(\.\/|\.ts)/g, '')
   const [namespace, imported] = path.split('/')
-  console.log(namespace, imported)
   if (!modules[namespace]) {
     modules[namespace] = {
       namespaced: true

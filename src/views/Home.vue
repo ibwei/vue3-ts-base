@@ -2,7 +2,6 @@
   <div>
     <span class="hello">hahahah</span>
     <hello-world msg="home" />
-    <full-loading :show="true" text="hehhe" />
   </div>
 </template>
 <script lang="ts">

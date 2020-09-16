@@ -1,3 +1,5 @@
+import { RootStateType } from '@/store/state'
+import { AppStateType } from '@/store/modules/app/state'
 import { createStore } from 'vuex'
 
 export declare interface StoreInstance extends ReturnType<typeof createStore> {
@@ -5,10 +7,11 @@ export declare interface StoreInstance extends ReturnType<typeof createStore> {
   __g?: (type: string, val: any) => any
 }
 
-export declare interface Book {
-  author?: string
-  pageName: string
-}
+// vuex模块的类型
+type ModuleType = { app: AppStateType }
+
+// 所有的SateType
+export type StateType = { state: ModuleType & RootStateType & StoreInstance }
 
 // request interceptors
 export declare interface ApiResponse {

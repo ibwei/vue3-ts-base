@@ -14,12 +14,67 @@
 
 #### 代码基础架构说明
 
-- <b>api</b> http 请求相关文件夹
-- <b>assets</b> 静态资源文件,未经压缩的,会走 webpack 压缩流程
-- <b>public</b> 静态资源文件,根目录,不会经过 webpack 压缩打包,存放已经处理好的第三方资源,会原样输出
--
-- <b>test</b> 测试用例相关
-- ...
+|-- 根目录
+|-- @types 项目共用的 type
+|-- dist 项目 build 之后的文件夹
+|-- docs 文档生成的根目录位置
+|-- public 项目静态资源，不经过 webpack，以及默认的模版，适合存放第三方压缩好的资源
+|-- src 主要的开发目录
+| |-- App.vue 页面渲染根节点
+| |-- main.ts 入口文件
+| |-- shims-vue.d.ts vue 文件类型的 type
+| |-- api http 请求相关
+| | |-- apiList.ts api 接口列表
+| | |-- axios.ts 业务请求封装
+| | |-- editor.ts 其他业务封装
+| | |-- user.ts api 请求模块
+| |-- assets 存放静态资源，这个文件夹下的文件会走 webpack 压缩流程
+| |-- components
+| | |-- index.ts 自动注册脚本
+| | |-- global 自动注册的全局组件
+| | |-- ...其他非全局注册的模块
+| |-- config 全局静态配置，不可更改项
+| |-- layout 页面页面骨架
+| |-- plugins 存放第三方插件
+| | |-- index.ts 插件挂载入口
+| |-- router 路由
+| | |-- index.ts 路由入口
+| |-- store vuex
+| | |-- modules 多个模块
+| | |-- index.ts 自动装载模块
+| | |-- app app 模块
+| |-- styles 全局样式，一句 ui 库主题样式
+| | |-- \_variables.less
+| | |-- test.less
+| |-- utils 常用函数以及其他有用工具
+| | |-- common.ts
+| |-- views 页面级组件
+| |-- Home.vue 正常页面
+| |-- test 组件测试页面
+| |-- Test.vue
+|-- tests 测试用例
+|-- api api 模块
+|-- unit 单元测试
+|-- .czrc 提交规范选项设置
+|-- .editorconfig vscode 编辑器 设置
+|-- .env.development 开发环境配置
+|-- .env.preview 测试环境配置
+|-- .env.production 生产环境配置
+|-- .eslintignore eslint 要忽略的文件夹
+|-- .eslintrc.js eslint 规则配置
+|-- .gitattributes github 语言选项设置
+|-- .gitignore git 忽略的文件
+|-- .gitlab-ci.yml gitlab CI/CD 配置
+|-- .prettierrc.js 格式化插件配置
+|-- CHANGELOG.md 版本更改说明
+|-- Dockerfile 如果需要容器部署
+|-- README.md 项目说明
+|-- babel.config.js babel 设置
+|-- global.d.ts 全局的 type
+|-- package.json <font color="red">npm 配置</font>
+|-- tsconfig.json <font color="red">typescript 配置</font>
+|-- typedoc.json 文档配置文件
+|-- vue.config.js <font color="red">vue-cli 脚手架配置文件</font>
 
 #### 组件编写
 
@@ -54,12 +109,12 @@
 
 #### 插件与常用工具函数
 
-- [ ] 引用常用工具函数
+- [x] 引用常用工具函数
 
 #### 配置
 
-- [ ] 配置 webpack,分离开发/测试/生产环境配置.
-- [ ] 添加 webpack 常用插件,优化打包配置.
+- [x] 配置 webpack,分离开发/测试/生产环境配置.
+- [x] 添加 webpack 常用插件,优化打包配置.
 - [x] 根据环境配置 vue-cli 环境变量(环境相关)
 - [x] 配置应用全局静态常量(业务相关)
 - [x] 完成 tsconfig 相关配置
@@ -69,7 +124,7 @@
 
 - [x] eslint 代码检查,配置 prettier 格式化工具,使检查规则和格式化规则一致
 - [x] 新增提交规范 git cz commitizen,统一代码提交规范
-- [x] <font color="green">为没有 type 的库和变量添加 shims</font>
+- [x] 为没有 type 的库和变量添加 shims
 
 #### CI/CD
 
@@ -83,32 +138,43 @@
 
 #### 测试用例
 
-- [ ] 支持编写 js,ts 的测试用例
+- [x] 支持编写 js,ts 的测试用例
 
-## Project setup
+## 安装依赖
 
 ```
 yarn install
+npm install
 ```
 
-### Compiles and hot-reloads for development
+### 开发模式
 
 ```
 yarn serve
+npm run serve
 ```
 
-### Compiles and minifies for production
+### 生产环境
 
 ```
 yarn build
+npm run build
 ```
 
-### Lints and fixes files
+### 测试用例
+
+- api 模块开发环境下单元测试
 
 ```
-yarn lint
+npm run test-dev:api
 ```
 
-### Customize configuration
+- api 模块常规单元测试
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
+npm run test:api
+```
+
+### 更多问题
+
+如果有问题，请提 issue 说明 => [传送门](https://github.com/ibwei/vue3-base).

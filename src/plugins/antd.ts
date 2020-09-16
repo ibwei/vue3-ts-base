@@ -1,4 +1,4 @@
-import { Button } from 'ant-design-vue'
+import { Button, Card, Row, Col } from 'ant-design-vue'
 import { createApp } from 'vue'
 
 /**
@@ -8,6 +8,9 @@ import { createApp } from 'vue'
  */
 export function loadAtdComponent(app: ReturnType<typeof createApp>) {
   app.use(Button)
+  app.use(Card)
+  app.use(Row)
+  app.use(Col)
 }
 
 /* Automatically register components under Button, such as Button.Group */
