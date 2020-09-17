@@ -1,4 +1,4 @@
-import { createStore } from 'vuex'
+import { createStore, createLogger } from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import mutations from './mutations'
 import modules from './modules'
@@ -12,6 +12,7 @@ const store: StoreInstance = createStore({
   actions: {},
   modules: { ...modules },
   plugins: [
+    createLogger(),
     createPersistedState({
       paths: ['app']
     })

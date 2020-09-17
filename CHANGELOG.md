@@ -1,3 +1,17 @@
+## [0.1.6](https://github.com/ibwei/vue3-base/compare/v0.1.8...v0.1.6) (2020-09-17)
+
+
+### Bug Fixes
+
+* **readme.md:** 修改项目说明文档 ([0065d42](https://github.com/ibwei/vue3-base/commit/0065d420b18ee3ddc13396b1436faee090806a16))
+
+
+### Features
+
+* **测试:** 添加测试例子,完善vuex的类型 ([b833160](https://github.com/ibwei/vue3-base/commit/b833160194808b4fd04aa0dbca1223449c7d1e88))
+
+
+
 ## 0.1.5 (2020-09-09)
 
 ### Bug Fixes

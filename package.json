@@ -1,11 +1,14 @@
 {
-  "name": "vue3-ts-base",
-  "version": "0.1.6",
+  "name": "vue3-base-type",
+  "version": "0.1.7",
   "description": "一个使用vue3+typescript 搭建的项目基础架构类型声明库",
   "author": {
     "name": "ibwei",
     "email": "997132391@qq.com",
     "url": "http://me.ibwei.com"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -133,9 +136,6 @@
     "base"
   ],
   "license": "MIT",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ibwei/vue3-base"

@@ -72,10 +72,10 @@
     |-- README.md 项目说明
     |-- babel.config.js babel 设置
     |-- global.d.ts 全局的 type
-    |-- package.json <font color="red">npm 配置</font>
-    |-- tsconfig.json <font color="red">typescript 配置</font>
+    |-- package.json npm 配置
+    |-- tsconfig.json typescript 配置
     |-- typedoc.json 文档配置文件
-    |-- vue.config.js <font color="red">vue-cli 脚手架配置文件</font>
+    |-- vue.config.js vue-cli 脚手架配置文件
 ```
 
 #### 组件编写
