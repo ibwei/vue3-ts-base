@@ -13,6 +13,7 @@
 - webpack 插件:style-resources-loader
 
 #### 代码基础架构说明
+
 ```
 |-- 根目录
     |-- @types 项目共用的 type
@@ -76,6 +77,7 @@
     |-- typedoc.json 文档配置文件
     |-- vue.config.js <font color="red">vue-cli 脚手架配置文件</font>
 ```
+
 #### 组件编写
 
 - [x] 支持 tsx 方式编写页面,在.tsx 文件或者 class-component 里写 tsx.

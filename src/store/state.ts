@@ -1,9 +1,8 @@
-const state: RootStateType = {
-  fullLoading: false
+const state = {
+  fullLoading: false,
+  loadingText: 'Loading...'
 }
 
-type RootStateType = {
-  fullLoading: boolean
-}
+type RootStateType = typeof state
 
 export { state, RootStateType }

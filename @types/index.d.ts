@@ -11,7 +11,7 @@ export declare interface StoreInstance extends ReturnType<typeof createStore> {
 type ModuleType = { app: AppStateType }
 
 // 所有的SateType
-export type StateType = { state: ModuleType & RootStateType & StoreInstance }
+export type StateType = ModuleType & RootStateType & StoreInstance
 
 // request interceptors
 export declare interface ApiResponse {

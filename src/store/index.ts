@@ -10,7 +10,7 @@ const store: StoreInstance = createStore({
   state: state,
   mutations,
   actions: {},
-  ...modules,
+  modules: { ...modules },
   plugins: [
     createPersistedState({
       paths: ['app']

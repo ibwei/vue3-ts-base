@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <full-loading :show="fullLoading" text="hehhe" />
+    <full-loading :show="fullLoading" :text="loadingText" />
     <div id="nav">
       <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link> | <router-link to="/contact">Contact</router-link> |
       <router-link to="/tests">组件测试</router-link>
@@ -19,12 +19,12 @@ const App = defineComponent({
       hello: 'iis'
     }
   },
-  created() {
-    console.log(this.$store)
-  },
   computed: {
     fullLoading() {
       return this.$store.state.fullLoading
+    },
+    loadingText() {
+      return this.$store.state.loadingText
     }
   }
 })
