@@ -10,10 +10,10 @@ export declare interface StoreInstance extends ReturnType<typeof createStore> {
 // vuex模块的类型
 type ModuleType = { app: AppStateType }
 
-// 所有的SateType
+// 所有的StateType
 export type StateType = ModuleType & RootStateType & StoreInstance
 
-// request interceptors
+/** http请求响应格式  */
 export declare interface ApiResponse {
   errCode: number
   errMsg?: string

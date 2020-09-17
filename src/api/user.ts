@@ -33,7 +33,7 @@ export interface UserApi {
 }
 
 /**
- * @example Axios.get(`https://api.abckey.com/market/${this.c_switchCashName}/${this.cash.toLowerCase()}&t=${new Date().getTime()}`)
+ * @example Axios.get(`https://xxx.com}`)
  * @todo Get the exchange rate of the current currency
  */
 class UserService {
