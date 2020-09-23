@@ -6,26 +6,39 @@
     <test-demo />
     <router-link to="/about/me">kjfkjsk</router-link>
     <router-view />
-    <self-button />
+    <a-button @click="changeState">改变</a-button>
+    <p>{{ state.name }}</p>
+    <p>{{ state1.name }}</p>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, reactive, ref, onMounted } from 'vue'
 import TestDemo from '../components/TestDemo.vue'
 import HelloWorld from '../components/HelloWorld.vue'
-import SelfButton from '../components/SelfButton.vue'
 
 const About = defineComponent({
   setup() {
+    onMounted(() => {
+      console.log('mounted')
+    })
+    const state = { name: 'init' }
+    const state1 = reactive({
+      name: '1111'
+    })
+    const changeState = () => {
+      console.log('2324234')
+      state.name = 'hahahah'
+      state1.name = 'chageddddd'
+      console.log(state)
+    }
     const c = ref(0)
     const root = ref(null)
-    return { root, c }
+    return { root, c, state, changeState, state1 }
   },
   components: {
     TestDemo,
-    HelloWorld,
-    SelfButton
+    HelloWorld
   },
   data() {
     return {

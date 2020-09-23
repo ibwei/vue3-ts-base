@@ -33,7 +33,10 @@ const AboutMe = defineComponent({
   },
   methods: {
     caculatePageName(): string {
-      return this.book.pageName.split('-').reverse().join()
+      return this.book.pageName
+        .split('-')
+        .reverse()
+        .join()
     }
   }
 })
