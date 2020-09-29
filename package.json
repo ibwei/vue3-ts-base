@@ -7,9 +7,6 @@
     "email": "997132391@qq.com",
     "url": "http://me.ibwei.com"
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -28,12 +25,15 @@
     "@types"
   ],
   "dependencies": {
-    "ant-design-vue": "^2.0.0-beta.6",
+    "@vue/composition-api": "^1.0.0-beta.14",
+    "@vueuse/core": "^4.0.0-beta.16",
+    "ant-design-vue": "^2.0.0-beta.9",
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "moment": "^2.27.0",
     "vue": "^3.0.0-0",
     "vue-class-component": "^8.0.0-0",
+    "vue-composable": "^1.0.0-beta.10",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0",
     "vuex-persistedstate": "^3.1.0"
