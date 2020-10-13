@@ -14,16 +14,12 @@ jobs:
       run: npm install
     - name: Run build task
       run: npm run build --if-present
-    - uses: actions/checkout@master
-    - name: copy file via ssh password
-      uses: appleboy/scp-action@master
-
     - name: Checkout
       uses: actions/checkout@v2
     - name: deploy file
       uses: wlixcc/SFTP-Deploy-Action@v1.0
       with:
-          username: 'root'
+          username: ${{ secrets.REMOTE_USER }} 
           server: ${{ secrets.REMOTE_HOST }} 
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} 
           local_path: './dist/*'
