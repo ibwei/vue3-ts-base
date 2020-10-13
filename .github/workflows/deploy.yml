@@ -17,12 +17,17 @@ jobs:
     - uses: actions/checkout@master
     - name: copy file via ssh password
       uses: appleboy/scp-action@master
+
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: deploy file
+      uses: wlixcc/SFTP-Deploy-Action@v1.0
       with:
-        host: ${{ secrets.REMOTE_HOST }}
-        username: ${{ secrets.REMOTE_USER }}
-        password: ${{ secrets.REMOTE_PASSWORD }}
-        port: ${{ secrets.REMOTE_PORT }}
-        source: "dist/js,dist/css,index.html"
-        target: ${{secrets.REMOTE_TARGET}}
+          username: 'root'
+          server: ${{ secrets.REMOTE_HOST }} 
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} 
+          local_path: './dist/*'
+          remote_path: '/data/www/vue3'
+          args: '-o ConnectTimeout=5'
 
   
