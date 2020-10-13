@@ -22,7 +22,7 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         password: ${{ secrets.REMOTE_PASSWORD }}
         port: ${{ secrets.REMOTE_PORT }}
-        source: "dist/*"
+        source: "dist/js,dist/css,index.html"
         target: ${{secrets.REMOTE_TARGET}}
 
   
