@@ -21,15 +21,8 @@ jobs:
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
         password: ${{ secrets.REMOTE_PASSWORD }}
-        port: ${{ secrets.PORT }}
+        port: ${{ secrets.REMOTE_PORT }}
         source: "dist/*"
         target: ${{secrets.REMOTE_TARGET}}
 
-    - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.REMOTE_HOST }}
-        username: ${{ secrets.REMOTE_USER }}
-        password: ${{ secrets.REMOTE_PASSWORD }}
-        port: ${{ secrets.PORT }}
-        script: whoami
+  
