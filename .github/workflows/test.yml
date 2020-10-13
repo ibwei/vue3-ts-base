@@ -1,4 +1,3 @@
-  
 name: test
 on: [push]
 jobs:
@@ -17,4 +16,4 @@ jobs:
           mkdir /data/www/temp
           cd /data/www/temp
           touch hell.md
-          
+
