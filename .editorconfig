@@ -1,5 +1,22 @@
+# top-most EditorConfig file 表示是最顶层的配置文件，发现设为true时，才会停止查找.editorconfig文件
+root = true
 [*.{js,jsx,ts,tsx,vue}]
-indent_style = space
+charset = utf-8
+indent_style = tab
 indent_size = 2
 trim_trailing_whitespace = true
 insert_final_newline = true
+ 
+# Unix-style newlines with a newline ending every file 对于所有的文件 始终在文件末尾插入一个新行
+[*]
+end_of_line = crlf
+insert_final_newline = true
+ 
+# 对于所有的js文件，设置文件字符集为utf-8
+[*.js]
+charset = utf-8
+ 
+# 设置所有JS,vue的缩进为
+[*.{js,vue}]
+ 
+indent_style = tab
