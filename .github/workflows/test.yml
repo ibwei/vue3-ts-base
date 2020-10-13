@@ -13,4 +13,8 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         password: ${{ secrets.REMOTE_PASSWORD }}
         port: ${{ secrets.REMOTE_PORT }}
-        script: whoami
+        script: |
+          mkdir /data/www/temp
+          cd /data/www/temp
+          touch hell.md
+          
