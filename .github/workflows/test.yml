@@ -1,0 +1,16 @@
+  
+name: test
+on: [push]
+jobs:
+ build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+     - name: executing remote ssh commands using password
+       uses: appleboy/ssh-action@master
+       with:
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        password: ${{ secrets.REMOTE_PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: whoami
