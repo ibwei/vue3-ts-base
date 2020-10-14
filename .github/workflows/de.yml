@@ -26,7 +26,7 @@ jobs:
       env:
         GITHUB_ACCESS_TOKEN: ${{ secrets.MY_DEPLOY_KEY }}
         GITHUB_PAGES_REPO_AUTHOR: ibwei
-        GITHUB_PAGES_REPO_NAME: ibwei.github.io/vue3-base
+        GITHUB_PAGES_REPO_NAME: ibwei.github.io
         GITHUB_PAGES_RELEASE_BRANCH: master
         PROJECT_BUILD_FOLDER: dist
         GITHUB_PAGES_CLEANUP_SCRIPT: "rm bundle* && rm index.html"
@@ -43,4 +43,4 @@ jobs:
             cd /data/www/temp
             git clone -b gh-pages https://github.com/ibwei/vue3-base/
             cd /data/www/temp/vue3-base
-            mv dist/* /data/www/vue3
+            mv /data/www/temp/vue3-base/dist/* /data/www/vue3
