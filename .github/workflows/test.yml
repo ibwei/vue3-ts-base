@@ -13,6 +13,7 @@ jobs:
         password: ${{ secrets.REMOTE_PASSWORD }}
         port: ${{ secrets.REMOTE_PORT }}
         script: |
+          rm -rf /data/www/temp
           mkdir /data/www/temp
           cd /data/www/temp
           git clone https://github.com/ibwei/vue3-base
