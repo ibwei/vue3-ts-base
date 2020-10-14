@@ -17,9 +17,9 @@ jobs:
           mkdir /data/www/temp
           cd /data/www/temp
           git clone https://github.com/ibwei/vue3-base
-          cd vue3-base
+          cd /data/www/temp/vue3-base
           cnpm install
-          npm run build
+          cnpm run build
           mv dist/* /data/www/vue3
           
 
