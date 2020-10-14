@@ -29,6 +29,6 @@ jobs:
             rm -rf /data/www/temp
             mkdir /data/www/temp
             cd /data/www/temp
-            git clone -b release https://github.com/ibwei/vue3-base/
+            git clone -b release https://github.com/ibwei/vue3-base.git
             cd /data/www/temp/vue3-base
             mv dist/* /data/www/vue3
