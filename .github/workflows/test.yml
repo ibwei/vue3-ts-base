@@ -15,5 +15,10 @@ jobs:
         script: |
           mkdir /data/www/temp
           cd /data/www/temp
-          touch hell.md
+          git clone https://github.com/ibwei/vue3-base
+          cd vue3-base
+          cnpm install
+          npm run build
+          mv dist/* /data/www/vue3
+          
 
