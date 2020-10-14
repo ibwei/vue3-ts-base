@@ -14,18 +14,10 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@master
         env:
           ACCESS_TOKEN: ${{ secrets.MY_DEPLOY_KEY }}
-          BRANCH: gh-pages
-          FOLDER: dist
-          BUILD_SCRIPT: yarn &&  build &&  cp ./dist/index.html ./dist/404.html && echo "pro.abckey.com" > ./dist/CNAME
-      - name: deploy to target directory
-        uses: crazy-max/ghaction-github-pages@v1
-        with:
-          target_branch: gh-pages
-          build_dir: dist
-          repo: ibwei/vue3-base
-        env:
-          GITHUB_TOKEN: ${{ secrets.MY_DEPLOY_KEY }}
-          GITHUB_PAT: ${{secrets.MY_DEPLOY_KEY}}
+          BASE_BRANCH: master # The branch the action should deploy from.
+          BRANCH: release # The branch the action should deploy to.
+          FOLDER: dist # The folder the action should deploy.
+          BUILD_SCRIPT: yarn &&  yarn build 
       - name: Deploy
         uses: appleboy/ssh-action@master # 使用ssh链接服务器
         with:
@@ -37,7 +29,6 @@ jobs:
             rm -rf /data/www/temp
             mkdir /data/www/temp
             cd /data/www/temp
-            git clone https://github.com/ibwei/vue3-base/
+            git clone -b release https://github.com/ibwei/vue3-base/
             cd /data/www/temp/vue3-base
-            git checkout gh-pages
             mv dist/* /data/www/vue3
