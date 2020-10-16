@@ -1,5 +1,7 @@
 # 项目基础代码架构说明
 
+- <font color="red">目前暂时还未完成 vuex 的类型编写</font>
+
 #### 主要用到的库
 
 - vue 全家桶 vue3 + vue-router + vuex + typescript

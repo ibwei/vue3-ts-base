@@ -3,20 +3,19 @@ import createPersistedState from 'vuex-persistedstate'
 import mutations from './mutations'
 import modules from './modules'
 import { state } from './state'
-import { StoreInstance } from '@types'
 
-const store: StoreInstance = createStore({
-  strict: true,
-  state: state,
-  mutations,
-  actions: {},
-  modules: { ...modules },
-  plugins: [
-    createLogger(),
-    createPersistedState({
-      paths: ['app']
-    })
-  ]
+const store: any = createStore({
+	strict: true,
+	state: state,
+	mutations,
+	actions: {},
+	modules: { ...modules },
+	plugins: [
+		createLogger(),
+		createPersistedState({
+			paths: ['app']
+		})
+	]
 })
 
 /**
@@ -26,43 +25,43 @@ const store: StoreInstance = createStore({
  * @example 以操作 raceConfigType为例,读取操作: this.$store.__s('raceConfigType'),赋值操作:this.$store.__s('raceConfigType','add'), 更改app 下模块 theme,读取操作: this.$store.__s('app.theme'),赋值操作:this.$store.__s('app.theme','light')
  */
 store.__s = (type: string, msg: any) => {
-  let _state: any = store.state
-  if (!type) return store.state
-  if (type.indexOf('.') === -1) {
-    if (msg !== undefined) {
-      store.commit({
-        type: '__set',
-        key: type,
-        val: msg,
-        root: true
-      })
-      return _state
-    } else {
-      return _state[type]
-    }
-  }
-  const _path = type.split('.')
-  for (let i = 0; i < _path.length; i++) {
-    if (_state[_path[i]] !== undefined) {
-      _state = _state[_path[i]]
-    } else {
-      _state = undefined
-    }
-  }
-  if (msg !== undefined && _path.length === 2) {
-    store.commit({
-      type: _path[0] + '/__set',
-      key: _path[1],
-      val: msg
-    })
-  }
-  return _state
+	let _state: any = store.state
+	if (!type) return store.state
+	if (type.indexOf('.') === -1) {
+		if (msg !== undefined) {
+			store.commit({
+				type: '__set',
+				key: type,
+				val: msg,
+				root: true
+			})
+			return _state
+		} else {
+			return _state[type]
+		}
+	}
+	const _path = type.split('.')
+	for (let i = 0; i < _path.length; i++) {
+		if (_state[_path[i]] !== undefined) {
+			_state = _state[_path[i]]
+		} else {
+			_state = undefined
+		}
+	}
+	if (msg !== undefined && _path.length === 2) {
+		store.commit({
+			type: _path[0] + '/__set',
+			key: _path[1],
+			val: msg
+		})
+	}
+	return _state
 }
 
 /** 读取getter 的操作  */
 store.__g = (type: string): any => {
-  if (!type) return store.getters
-  return store.getters[type]
+	if (!type) return store.getters
+	return store.getters[type]
 }
 
 export default store
