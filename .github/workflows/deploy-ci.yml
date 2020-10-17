@@ -20,7 +20,7 @@ jobs:
           BUILD_SCRIPT: yarn &&  yarn build 
       - name: Deploy
         uses: appleboy/ssh-action@master # 使用ssh链接服务器
-        with:
+        with:  #登录服务器，git 下载 release 分支
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           password: ${{ secrets.REMOTE_PASSWORD }}
@@ -29,7 +29,7 @@ jobs:
             rm -rf /data/www/temp
             mkdir /data/www/temp
             cd /data/www/temp
-            git clone -b release https://github.com/ibwei/vue3-base.git
+            git clone -b release https://github.com/ibwei/vue3-base.git  
             cd /data/www/temp/vue3-base
             rm -rf /data/www/vue3/*
             mv ./* /data/www/vue3
