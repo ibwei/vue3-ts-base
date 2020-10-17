@@ -54,57 +54,61 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script lang="ts">
+import { computed, defineComponent, reactive, toRefs } from 'vue'
+import { StateType } from '@types'
+import { useStore } from 'vuex'
+import { setStoreState } from '@/store/utils'
 
 export default defineComponent({
-  data() {
-    return {
+  setup() {
+    const store = useStore<StateType>()
+
+    const state = reactive({
       labelCol: { span: 4 },
       wrapperCol: { span: 14 },
       loading: false,
       inputValue: '',
       globalLoadingText: ''
+    })
+
+    const app = computed(() => store.state.app)
+    const loadingText = computed(() => store.state.app.loadingText)
+    const changeTheme = () => {
+      setStoreState('app', 'theme', state.inputValue)
     }
-  },
-  created() {
-    console.log(this.app)
-  },
-  computed: {
-    app() {
-      return this.$store.state.app
-    },
-    loadingText() {
-      return this.$store.state.loadingText
+
+    const changeText = () => {
+      setStoreState('app', 'loadingText', state.globalLoadingText)
+      setStoreState('app', 'fullLoading', true)
+      setTimeout(() => {
+        setStoreState('app', 'fullLoading', false)
+      }, 3000)
     }
-  },
-  methods: {
-    /**
-     * @description 更改 vuex 主题名
-     */
-    changeTheme() {
-      console.log(this.inputValue)
-      this.$store.__s('app.theme', this.inputValue)
-    },
-    changeText() {
-      this.$store.__s('loadingText', this.globalLoadingText)
-      this.$store.__s('fullLoading', true)
+
+    const openPartLoading = () => {
+      state.loading = true
       setTimeout(() => {
-        this.$store.__s('fullLoading', false)
+        state.loading = false
       }, 3000)
-    },
-    openPartLoading() {
-      this.loading = true
+    }
+
+    const openFullLoading = () => {
+      setStoreState('app', 'loadingText', '全局加载中')
+      setStoreState('app', 'fullLoading', true)
       setTimeout(() => {
-        this.loading = false
+        setStoreState('app', 'fullLoading', false)
       }, 3000)
-    },
-    openFullLoading() {
-      this.$store.__s('loadingText', '全局加载中')
-      this.$store.__s('fullLoading', true)
-      setTimeout(() => {
-        this.$store.__s('fullLoading', false)
-      }, 3000)
+    }
+
+    return {
+      openFullLoading,
+      openPartLoading,
+      changeText,
+      changeTheme,
+      loadingText,
+      app,
+      ...toRefs(state)
     }
   }
 })
