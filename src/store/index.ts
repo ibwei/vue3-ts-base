@@ -2,10 +2,7 @@ import { createStore, createLogger, Store } from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import mutations from './mutations'
 import modules from './modules'
-import { AppStateType } from '@/store/modules/app/state'
 import { StateType } from '@types'
-
-export type GlobalState = { app: AppStateType }
 
 const store: Store<StateType> = createStore({
   strict: true,
@@ -26,7 +23,5 @@ const store: Store<StateType> = createStore({
           })
         ]
 })
-
-store.state.app?.language
 
 export default store

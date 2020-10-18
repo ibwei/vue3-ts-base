@@ -1,4 +1,4 @@
-import { GlobalState } from '@/store'
+import { StateType } from '@types'
 import { Module } from 'vuex'
 
 const state = {
@@ -10,7 +10,7 @@ const state = {
 }
 type AppStateType = typeof state
 
-const app: Module<AppStateType, GlobalState> = { namespaced: true, state }
+const app: Module<AppStateType, StateType> = { namespaced: true, state }
 
 export { AppStateType, state }
 export default app
