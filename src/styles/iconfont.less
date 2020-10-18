@@ -1,6 +1,16 @@
-/* iconfont */
-.iconfont {
-  font-family: 'iconfont' !important;
+/* 自定义字体 */
+@font-face {
+  font-family: Helvetica;
+  src :url('../assets/fonts/Helvetica.eot');
+  src        : url('../assets/fonts/Helvetica.woff2') format('woff2');
+  src        : url('../assets/fonts/Helvetica.woff') format('woff');
+  src        : url('../assets/fonts/Helvetica.otf');
+  src        : url('../assets/fonts/Helvetica.ttf') format('truetype');
+}
+
+
+.iconfont ::v-deep(.anticon){
+  font-family: 'iconfont';
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;

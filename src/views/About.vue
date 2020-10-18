@@ -1,21 +1,11 @@
 <template>
   <div ref="root" class="about">
-    <h1>{{ c }}</h1>
-    <h2>{{ b.pageName }}</h2>
-    <hello-world />
-    <test-demo />
-    <router-link to="/about/me">kjfkjsk</router-link>
-    <router-view />
-    <a-button @click="changeState">改变</a-button>
-    <p>{{ state.name }}</p>
-    <p>{{ state1.name }}</p>
+    about.page
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive, ref, onMounted } from 'vue'
-import TestDemo from '../components/TestDemo.vue'
-import HelloWorld from '../components/HelloWorld.vue'
 
 const About = defineComponent({
   setup() {
@@ -27,7 +17,6 @@ const About = defineComponent({
       name: '1111'
     })
     const changeState = () => {
-      console.log('2324234')
       state.name = 'hahahah'
       state1.name = 'chageddddd'
       console.log(state)
@@ -35,10 +24,6 @@ const About = defineComponent({
     const c = ref(0)
     const root = ref(null)
     return { root, c, state, changeState, state1 }
-  },
-  components: {
-    TestDemo,
-    HelloWorld
   },
   data() {
     return {

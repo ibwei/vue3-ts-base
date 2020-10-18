@@ -1,3 +1,23 @@
+## [0.1.10](https://github.com/ibwei/vue3-base/compare/0.1.9...0.1.10) (2020-10-18)
+
+
+### Bug Fixes
+
+* **ci/cd:** 修复 CI/CD 错误生成的文件 ([2fbba24](https://github.com/ibwei/vue3-base/commit/2fbba2449f345ae9b98ad4b1ea9edde13f3d8a05))
+* **ci/cd:** 完善 CI/CD 配置 ([7ec507f](https://github.com/ibwei/vue3-base/commit/7ec507f74a07cd34feff450bc25f76a4847246be))
+
+
+### Features
+
+* **vuex & test:** 完善 vuex 使用以及更改了组件测试页面 ([a913a06](https://github.com/ibwei/vue3-base/commit/a913a062d4c3a4a800ac95389aff8d2342e9b763))
+
+
+### Performance Improvements
+
+* **public:** 优化默认模版以及去掉CI/CD 错误生成的文件 ([cacd037](https://github.com/ibwei/vue3-base/commit/cacd0377e34dc156e90f56726452f776e48b213f))
+
+
+
 ## [0.1.9](https://github.com/ibwei/vue3-base/compare/v0.1.8...v0.1.9) (2020-10-17)
 
 

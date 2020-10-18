@@ -1,17 +1,12 @@
 <template>
   <div>
-    <span class="hello">hahahah</span>
-    <hello-world msg="home" />
+    home.page
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import HelloWorld from '@/components/HelloWorld1.vue' // @ is an alias to /src
 
 const Home = defineComponent({
-  components: {
-    HelloWorld
-  },
   created() {
     console.log('routerList', this.$route)
     console.log(this)

@@ -1,15 +1,11 @@
 <template>
   <div ref="root" class="about">
     <p>about-me</p>
-    <test-demo />
-    <self-button />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue'
-import TestDemo from '@/components/TestDemo.vue'
-import SelfButton from '@/components/SelfButton.vue'
 
 const AboutMe = defineComponent({
   setup() {
@@ -18,10 +14,6 @@ const AboutMe = defineComponent({
     })
     const root = ref(null)
     return { root }
-  },
-  components: {
-    TestDemo,
-    SelfButton
   },
   data() {
     return {

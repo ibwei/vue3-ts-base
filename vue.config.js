@@ -5,7 +5,7 @@ const IS_DEV = process.env.NODE_ENV !== 'production'
  * 在开发时使用 UglifyJsPlugin 来压缩和修改代码是没有意义的,不压缩
  */
 
-const DEVELOPMENT = (webpackConfig) => {
+const DEVELOPMENT = webpackConfig => {
   /**
    * @todo 启用 eval-source-map 更好的测试
    * 每个模块使用 eval() 执行，并且 source map 转换为 DataUrl 后添加到 eval() 中。
@@ -28,7 +28,7 @@ const DEVELOPMENT = (webpackConfig) => {
  * 每个额外的 loader/plugin 都有启动时间。尽量少使用不同的工具
  */
 
-const PRODUCTION = (webpackConfig) => {
+const PRODUCTION = webpackConfig => {
   /**
    * @todo 不需要启用 source-map，去除 console 的情况下 source-map 根本没用，还浪费大量时间和空间
    * 详情见：https://webpack.js.org/configuration/devtool/#devtool
@@ -82,7 +82,7 @@ module.exports = {
     /** 全局加载less 的 webpack 插件  */
     'style-resources-loader': {
       preProcessor: 'less',
-      patterns: ['./src/styles/_variables.less']
+      patterns: ['./src/styles/var.less']
     }
   },
   /**
@@ -90,13 +90,13 @@ module.exports = {
    *  config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true;
    *  html-webpack-plugin插件配置详情见 https://github.com/jantimon/html-webpack-plugin#options
    */
-  configureWebpack: (config) => {
+  configureWebpack: config => {
     if (!IS_DEV) {
       config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
       config.optimization.minimizer[0].options.terserOptions.sourceMap = false
     }
   },
-  chainWebpack: (config) => {
+  chainWebpack: config => {
     IS_DEV ? DEVELOPMENT(config) : PRODUCTION(config)
   }
 }

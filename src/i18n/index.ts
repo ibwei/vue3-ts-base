@@ -12,8 +12,6 @@ import en from '@/i18n/messages/en'
 import store from '@/store'
 import { setStoreState } from '../store/utils'
 
-console.log(store.state.app)
-
 let __LOCALE__ = store.state.app.language
 
 if (!__LOCALE__) {
@@ -52,7 +50,7 @@ export const i18nInstance = useI18n({
 function loadAtdLocales() {
   const files = require.context('../../node_modules/ant-design-vue/es/locale-provider', true, /\.js$/)
   files.keys().forEach(key => {
-    const fileName = /(?<=\/)\S+(?=\.)/.exec(key) as Array<any>
+    const fileName = /(?<=\/)\S+(?=\.)/.exec(key) as Array<string>
     if (includes(TranslateTable, fileName[0])) {
       const localeKey = findKeyByValue(TranslateTable, fileName[0])
       if (localeKey) {
