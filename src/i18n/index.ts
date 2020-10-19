@@ -66,7 +66,7 @@ function loadAtdLocales() {
  * @return {string} lang - langguage name
  */
 
-function _set(lang: keyof typeof TranslateTable): any {
+function _set(lang: keyof typeof TranslateTable): keyof typeof TranslateTable {
   i18nInstance.locale.value = lang as any
   // 设置当前语言的时间
   moment.locale(TranslateTable[lang])
@@ -80,7 +80,7 @@ function _set(lang: keyof typeof TranslateTable): any {
  * @param {string} lang - 将要更换的语言
  * @return {string} lang - 返回将要更改的语言明后才能
  */
-export function setLang(lang: string): Promise<string> {
+export function setLang(lang: string): Promise<keyof typeof TranslateTable | 'same'> {
   if (lang === i18nInstance.locale.value) {
     return Promise.resolve('same')
   }

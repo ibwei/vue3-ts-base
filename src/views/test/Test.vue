@@ -21,6 +21,7 @@
       <a-row class="row" type="flex" justify="center" align="top">
         <a-col :span="12">
           <p>i18n 语言国际化效果</p>
+          <p>{{ i18n }}</p>
           <p>当前语言名称：{{ i18n.languageName }}</p>
         </a-col>
         <a-col :span="12">
