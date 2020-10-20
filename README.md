@@ -1,5 +1,11 @@
 # 项目基础代码架构说明
 
+- 如果对你有帮助的话，欢迎star
+- demo 演示地址:[https://ibwei.github.io/vue3-ts-base/](https://ibwei.github.io/vue3-ts-base/)  
+#### 包管理工具
+
+- 建议使用 yarn,也是 vue-cli4.0+ 默认工具
+  
 #### 主要用到的库
 
 - vue 全家桶 vue3 + vue-router + vuex + typescript

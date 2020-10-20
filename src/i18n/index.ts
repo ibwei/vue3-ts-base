@@ -12,11 +12,11 @@ import en from '@/i18n/messages/en'
 import store from '@/store'
 import { setStoreState } from '../store/utils'
 
-let __LOCALE__ = store.state.app.language
+const __LOCALE__ = store.state.app.language
 
 if (!__LOCALE__) {
-  __LOCALE__ = window.navigator.language.split('-').join('')
-  setStoreState('app', 'language', __LOCALE__)
+  //__LOCALE__ = window.navigator.language.split('-').join('')
+  setStoreState('app', 'language', 'zhCN')
 }
 
 /** 定义语言模版 */
