@@ -19,9 +19,7 @@ const App = defineComponent({
     const store = useStore<StateType>()
     const fullLoading = computed(() => store.state.app.fullLoading)
     const loadingText = computed(() => store.state.app.loadingText)
-    const currentLanguage = computed(() => {
-      Locales[store.state.app.language]
-    })
+    const currentLanguage = computed(() => Locales[store.state.app.language])
 
     return {
       currentLanguage,
