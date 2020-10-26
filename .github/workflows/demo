@@ -1,0 +1,35 @@
+name: GitHub Actions Build and Deploy Project
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Build and Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v2
+        env:
+          ACCESS_TOKEN: ${{ secrets.MY_DEPLOY_KEY }}
+          BASE_BRANCH: master # The branch the action should deploy from.
+          BRANCH: release # The branch the action should deploy to.
+          FOLDER: dist # The folder the action should deploy.
+          BUILD_SCRIPT: yarn &&  yarn build 
+      - name: Deploy
+        uses: appleboy/ssh-action@master # 使用ssh链接服务器
+        with:  #登录服务器，git 下载 release 分支
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          password: ${{ secrets.REMOTE_PASSWORD }}
+          port: ${{ secrets.REMOTE_PORT }}
+          script: |
+            rm -rf /data/www/temp
+            mkdir /data/www/temp
+            cd /data/www/temp
+            git clone -b release https://github.com/ibwei/vue3-ts-base.git  
+            cd /data/www/temp/vue3-ts-base
+            rm -rf /data/www/vue3/*
+            mv ./* /data/www/vue3
