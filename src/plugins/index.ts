@@ -7,6 +7,8 @@ import { createApp } from 'vue'
 export function loadAllPlugins(app: ReturnType<typeof createApp>) {
   const files = require.context('.', true, /\.ts$/)
   files.keys().forEach(key => {
-    if (key !== './index.ts') files(key).default(app)
+    if (typeof files(key).default === 'function') {
+      if (key !== './index.ts') files(key).default(app)
+    }
   })
 }

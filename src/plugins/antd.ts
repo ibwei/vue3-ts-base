@@ -1,5 +1,4 @@
 import { Button, Card, Row, Col, Tag, Form, Input, ConfigProvider, Select, DatePicker, Dropdown, Menu, Divider, Badge, BackTop, Carousel } from 'ant-design-vue'
-import '@/styles/antd.less'
 
 /**
  * @description 手动注册 antd-vue 组件,达到按需加载目的

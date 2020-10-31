@@ -9,6 +9,7 @@ import { registeGlobalComponent } from '@/components/index'
 
 // 语言国际化方案
 import '@/i18n/index'
+import './styles/antd.less'
 
 /** 将全局静态配置注入到应用中,可以通过 this.a读取,比 provide 和 inject 手动注入更方便  */
 const app: ReturnType<typeof createApp> = createApp(App)
