@@ -1,3 +1,13 @@
+## [0.1.11](https://github.com/ibwei/vue3-base/compare/v0.1.10...v0.1.11) (2020-10-31)
+
+
+### Bug Fixes
+
+* **i18n:** 修复 antd-vue 语言国际化出错问题 ([1cd844d](https://github.com/ibwei/vue3-base/commit/1cd844d08d51b0dc115dbe47352caadd684380ef))
+* **thme:** 修改 ant-design-vue自定义主题在 build 之后无法覆盖成功的问题 ([29a591d](https://github.com/ibwei/vue3-base/commit/29a591d0cf17429cb528f485171be3b6ae4f7ff8))
+
+
+
 ## [0.1.10](https://github.com/ibwei/vue3-base/compare/0.1.9...0.1.10) (2020-10-18)
 
 
