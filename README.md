@@ -14,7 +14,7 @@
 - 提交规范:git cz commitizen
 - 版本更改历史: changelog
 - 文档工具:typedoc
-- 代码检查:eslint+eslint-typescript,格式化:prettier.
+- 代码检查:eslint+eslint-typescript,格式化:prettier.提交之前检查与修复：lint-staged"
 - 测试用例:mocha,ts-node
 - webpack 插件:style-resources-loader
 
