@@ -99,5 +99,7 @@ module.exports = {
   },
   chainWebpack: config => {
     IS_DEV ? DEVELOPMENT(config) : PRODUCTION(config)
-  }
+  },
+  productionSourceMap: false,
+  lintOnSave: true
 }

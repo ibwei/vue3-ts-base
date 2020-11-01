@@ -9,7 +9,8 @@ const AboutRouter: RouteRecordRaw = {
     {
       path: 'me',
       name: 'aboutMe',
-      component: () => import(/* webpackChunkName: "about-me" */ '@/views/AboutMe.vue')
+      component: () =>
+        import(/* webpackChunkName: "about-me" */ '@/views/AboutMe.vue')
     }
   ]
 }

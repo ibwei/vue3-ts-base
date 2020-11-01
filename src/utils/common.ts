@@ -12,7 +12,10 @@ export function loadScript(url: string) {
       if (script.readyState) {
         //IE
         script.onreadystatechange = function() {
-          if (script.readyState == 'loaded' || script.readyState == 'complete') {
+          if (
+            script.readyState == 'loaded' ||
+            script.readyState == 'complete'
+          ) {
             script.onreadystatechange = null
             Promise.resolve(0)
           }
@@ -37,7 +40,10 @@ export function loadScript(url: string) {
  * @param {string} value - 要查找的值
  * @returns {string} key  返回的 key
  */
-export function findKeyByValue(target: { [key: string]: string }, value: string): string {
+export function findKeyByValue(
+  target: { [key: string]: string },
+  value: string
+): string {
   const keys = Reflect.ownKeys(target) as Array<string>
   for (let i = 0; i < keys.length; i++) {
     if (target[keys[i]] === value) {

@@ -8,11 +8,11 @@ insert_final_newline = true
  
 # Unix-style newlines with a newline ending every file 对于所有的文件 始终在文件末尾插入一个新行
 [*]
-end_of_line = crlf
+end_of_line = lf
 insert_final_newline = true
  
 # 对于所有的js文件，设置文件字符集为utf-8
-[*.js]
+[*.js,*.ts,*vue]
 charset = utf-8
  
 # 设置所有JS,vue的缩进为

@@ -64,17 +64,19 @@ const service = Axios.create({
  * @description 请求发起前的拦截器
  * @returns {AxiosRequestConfig} config
  */
-service.interceptors.request.use(async <AxiosRequestConfig>(config: AxiosRequestConfig) => {
-  // check network
-  /* TODO add http headers
+service.interceptors.request.use(
+  async <AxiosRequestConfig>(config: AxiosRequestConfig) => {
+    // check network
+    /* TODO add http headers
    const token = window.localStorage.getItem('token')
    config.headers = {
     ...config.headers,
     Authorization: token
   } */
 
-  return config
-})
+    return config
+  }
+)
 
 /**
  * @description 请求发起前的拦截器

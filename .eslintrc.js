@@ -10,7 +10,7 @@ module.exports = {
 	},
 	plugins: ['prettier', 'vue', '@typescript-eslint/eslint-plugin'],
 	rules: {
-		'prettier/prettier': 'off',
+		'prettier/prettier': 'error',
 		'no-unused-vars': 'off',
 		'@typescript-eslint/no-explicit-any': 'off',
 		'@typescript-eslint/member-delimiter-style': 'off',

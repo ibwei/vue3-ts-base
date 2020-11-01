@@ -25,7 +25,11 @@ type CommitNameType = AppStateType
  *  想要单独修改 firstName,直接使用 setStoreState('app','name',{firstName:'modifiedName',lastName:'Ma'})
  */
 
-export const setStoreState = (module: ModuleNameType, key: keyof CommitNameType, value: any) => {
+export const setStoreState = (
+  module: ModuleNameType,
+  key: keyof CommitNameType,
+  value: any
+) => {
   store.commit({
     type: module + '/__set',
     key: key,
