@@ -1,11 +1,12 @@
 import store from '@/store'
 import { AppStateType } from './modules/app/state'
+import { ConsoleStateType } from './modules/console/state'
 
 // 定义 state 下的 module 值
-type ModuleNameType = 'app' | 'others'
+type ModuleNameType = 'app' | 'console'
 
 // 定义 module 下的 key 值
-type CommitNameType = AppStateType
+type CommitNameType = AppStateType & ConsoleStateType
 
 /**
  * @description setStoreState -方法是一个 mutaitions 的操作
