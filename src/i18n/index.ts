@@ -55,8 +55,8 @@ function loadAtdLocales() {
   )
   files.keys().forEach(key => {
     const fileName = key.slice(2, key.lastIndexOf('.'))
-    if (includes(TranslateTable, fileName[0])) {
-      const localeKey = findKeyByValue(TranslateTable, fileName[0])
+    if (includes(TranslateTable, fileName)) {
+      const localeKey = findKeyByValue(TranslateTable, fileName)
       if (localeKey) {
         Locales[localeKey] = files(key).default
       }
