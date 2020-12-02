@@ -1,7 +1,7 @@
 import store from '@/store'
 import { AppStateType } from './modules/app/state'
 import { ConsoleStateType } from './modules/console/state'
-import { UserStateType } from '@/store/modules/user/state'
+import { UserStateType } from './modules/user/state'
 
 // 定义 state 下的 module 值
 type ModuleNameType = 'app' | 'console' | 'user'

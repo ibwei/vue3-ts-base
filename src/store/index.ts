@@ -14,23 +14,12 @@ const store: Store<StateType> = createStore({
       ? [
           createLogger(),
           createPersistedState({
-            paths: [
-              'app',
-              'console.sidebarFold',
-              'console.thirdPanelFold',
-              'console.teamGroupType',
-              'console.teamDetaiPanel'
-            ] // 部分数据只为方便调试,不应在线上环境持久化
+            paths: ['app', 'console', 'user']
           })
         ]
       : [
           createPersistedState({
-            paths: [
-              'app',
-              'console.sidebarFold',
-              'console.teamGroupType',
-              'console.teamDetaiPanel'
-            ]
+            paths: ['app', 'console', 'user']
           })
         ]
 })

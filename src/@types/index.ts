@@ -1,9 +1,15 @@
 import { AppStateType } from '@/store/modules/app/state'
 import { ConsoleStateType } from '@/store/modules/console/state'
 import { UserStateType } from '@/store/modules/user/state'
+import { ConsoleGetterType } from '../store/modules/console/getters'
 
-// vuex模块的类型
-export type ModuleType = {
+// vuex getters 模块的类型
+type GetterType = {
+  console: ConsoleGetterType
+}
+
+// vuex state 的模块的类型
+type ModuleType = {
   app: AppStateType
   console: ConsoleStateType
   user: UserStateType
@@ -56,6 +62,7 @@ export interface BasicUserType {
   type?: string
   userId?: number
   username?: string
+  cloudRole?: string
 }
 
 export interface ListParamType {
@@ -93,23 +100,26 @@ export interface TeamListType {
   orderNum?: number
   projectNum?: number
   tenantId?: number
+  roleId?: number // 用户在当前所在团队的权限
 }
 
 // 批量添加团队成员列表
 export interface TeamMemberType {
   id?: number
-  roleId?: number // 0 成员 1管理员 2 访客
+  roleId?: number
   status?: number
   teamId?: number
   tenantId?: number
   toolRole?: string
   userId?: number
   userTenantId?: number
+  cloudRole?: string
 }
 
 export enum RoleType {
   '超级管理员' = 1,
   '子账号',
+  '团队超级管理员',
   '团队管理员',
   '团队成员',
   '团队访客',
@@ -126,7 +136,7 @@ export interface RoleItemType {
   modifyTime: string
   parentId: number
   remark: string
-  roleName: keyof RoleType
+  roleName: keyof typeof RoleType
   type: number
   menuIds: string
 }
@@ -134,12 +144,62 @@ export interface RoleItemType {
 export interface AddTeamGroupParams {
   description?: string
   id?: number
+  teamId?: number
   name: string
-  tenantId: number
+  tenantId?: number
 }
 
 export interface AddTeamGroupMemberParams {
   groupId: number
   id?: number
   userId: number
+}
+
+export interface AddCloudRoleItem {
+  cloudRoleId: number
+  teamId: number
+  tenantId: number
+}
+// 云角色成员列表类型
+export interface CloudRoleItem extends AddCloudRoleItem {
+  allocatedNum: number
+  cloudRoleNum: number
+  endTime: string
+  id: number
+  name: string
+  unallocatedNum: number
+  cloudRoleName: string
+  toolId: number
+}
+
+// 更改成员云角色需要的传参
+export interface UpdateMemberRoleParams {
+  cloudRole: string
+  id: number
+  teamId: number
+  tenantId: number
+  userId: number
+}
+
+// 云角色列表项类型
+export type CloudRoleItemType = CloudRoleItem & { members: BasicUserType[] }
+
+// 云角色成员编辑的列表项类型
+
+export type EditCloudRoleItemType = {
+  members: BasicUserType[]
+  isCheck: boolean
+  cloudRole: string
+  teamId: number
+  tenantId: number
+  userId: number
+  allocatedNum: number
+  cloudRoleNum: number
+  endTime: string
+  id: number
+  name: string
+  unallocatedNum: number
+  cloudRoleName: string
+  toolId: number
+  cloudRoleId: number
 }

@@ -1,3 +1,65 @@
+import { BasicUserType, RoleType } from '@/@types'
+import store from '@/store'
+import { computed } from 'vue'
+
+/**
+ * @description 判断传入的日期是否过期
+ * @param {string} endTime - 过期的时间
+ * @returns {boolean}
+ */
+export const isValidDate = (endTime: string) => {
+  const nowTimeStamp = new Date().getTime()
+  const endTimeStamp = new Date(endTime.replaceAll('-', '/')).getTime()
+
+  // 过期
+  if (nowTimeStamp > endTimeStamp) {
+    return false
+  }
+  return true
+}
+
+// 是否具备团队编辑权限
+
+export const canEditTeam = computed(() => {
+  if (store.state.user.userDetail.type === 0) {
+    return true
+  }
+  const canEditTeamRoleList = [
+    RoleType['超级管理员'],
+    RoleType['团队超级管理员'],
+    RoleType['团队管理员']
+  ]
+  if (
+    canEditTeamRoleList.includes(store.state.user.currentTeamRoleId as number)
+  ) {
+    return true
+  }
+  return false
+})
+
+// 获取显示的名字
+
+export const getFormmatName = (user: BasicUserType) => {
+  if (user.nickName) {
+    return user.nickName
+  }
+  if (user.username) {
+    return user.username.split('-')[0]
+  }
+  return '团队超级管理员'
+}
+
+// 获取分组名
+export const getGroupName = (key: number): string => {
+  const roleList = store.state.console.roleList
+  for (let i = 0; i < roleList.length; i++) {
+    if (roleList[i].id == key) {
+      return roleList[i].roleName
+    }
+  }
+  return '暂无角色'
+}
+
 /**
  * @description 异步加载  一段js放在 header
  * @param {object} url - js 的 url
@@ -133,7 +195,8 @@ export function HtmlEncode(text: string) {
 
 // base64 encode
 export function base64Decode(data: string) {
-  const b64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
+  const b64 =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
   let o1
   let o2
   let o3
@@ -200,7 +263,9 @@ export function checkKey(iKey: number) {
 
 // get cookie value
 export function getCookie(name: string) {
-  const arr = document.cookie.match(new RegExp('(^| )' + name + '=([^;]*)(;|$)'))
+  const arr = document.cookie.match(
+    new RegExp('(^| )' + name + '=([^;]*)(;|$)')
+  )
   if (arr != null) return unescape(arr[2])
   return null
 }
@@ -285,13 +350,20 @@ export const isIphonex = () => {
     if (!isIOS) return false
     const { devicePixelRatio, screen } = window
     const { width, height } = screen
-    return xSeriesConfig.some(item => item.devicePixelRatio === devicePixelRatio && item.width === width && item.height === height)
+    return xSeriesConfig.some(
+      item =>
+        item.devicePixelRatio === devicePixelRatio &&
+        item.width === width &&
+        item.height === height
+    )
   }
   return false
 }
 
 export function isMobileUserAgent() {
-  return /iphone|ipod|android.*mobile|windows.*phone|blackberry.*mobile/i.test(window.navigator.userAgent.toLowerCase())
+  return /iphone|ipod|android.*mobile|windows.*phone|blackberry.*mobile/i.test(
+    window.navigator.userAgent.toLowerCase()
+  )
 }
 
 export function isViewportOpen() {
@@ -340,13 +412,21 @@ export function setCookie(name: string, value: any, Hours: number) {
   const nd = utc + 3600000 * offset
   const exp = new Date(nd)
   exp.setTime(exp.getTime() + Hours * 60 * 60 * 1000)
-  document.cookie = name + '=' + escape(value) + ';path=/;expires=' + exp.toUTCString() + ';domain=360doc.com;'
+  document.cookie =
+    name +
+    '=' +
+    escape(value) +
+    ';path=/;expires=' +
+    exp.toUTCString() +
+    ';domain=360doc.com;'
 }
 
 export function uniqueId(): number {
   const a: any = Math.random
   const b: any = parseInt
-  return Number(Number(new Date()).toString() + b(10 * a()) + b(10 * a()) + b(10 * a()))
+  return Number(
+    Number(new Date()).toString() + b(10 * a()) + b(10 * a()) + b(10 * a())
+  )
 }
 
 export function utf8Decode(strData: string) {
@@ -369,9 +449,150 @@ export function utf8Decode(strData: string) {
     } else {
       c2 = strData.charCodeAt(i + 1)
       c3 = strData.charCodeAt(i + 2)
-      tmpArr[ac++] = String.fromCharCode(((c1 & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63))
+      tmpArr[ac++] = String.fromCharCode(
+        ((c1 & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63)
+      )
       i += 3
     }
   }
   return tmpArr.join('')
+}
+
+/**
+ * @description 生成随机密码
+ * @param len 长度
+ */
+export function createPassword(len: number) {
+  //可以生成随机密码的相关数组
+  var num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  var english = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z'
+  ]
+  var ENGLISH = [
+    'A',
+    'B',
+    'C',
+    'D',
+    'E',
+    'F',
+    'G',
+    'H',
+    'I',
+    'J',
+    'K',
+    'L',
+    'M',
+    'N',
+    'O',
+    'P',
+    'Q',
+    'R',
+    'S',
+    'T',
+    'U',
+    'V',
+    'W',
+    'X',
+    'Y',
+    'Z'
+  ]
+  var special = ['-', '_', '#']
+  var config = num
+    .concat(english)
+    .concat(ENGLISH)
+    .concat(special)
+
+  //先放入一个必须存在的
+  var arr = []
+  arr.push(getOne(num))
+  arr.push(getOne(english))
+  arr.push(getOne(ENGLISH))
+  arr.push(getOne(special))
+
+  for (var i = 4; i < len; i++) {
+    //从数组里面抽出一个
+    arr.push(config[Math.floor(Math.random() * config.length)])
+  }
+
+  //乱序
+  var newArr = []
+  for (var j = 0; j < len; j++) {
+    newArr.push(arr.splice(Math.random() * arr.length, 1)[0])
+  }
+
+  //随机从数组中抽出一个数值
+  function getOne(arr: string | any[]) {
+    return arr[Math.floor(Math.random() * arr.length)]
+  }
+
+  return newArr.join('')
+}
+
+/**
+ * @description 获取字节数
+ * @param s 字符串
+ */
+export function getBytesLength(s: string) {
+  return s.replace(/[^\x00-\xff]/gi, '--').length
+}
+
+/**
+ * 获取服务器时间
+ * 注意：
+ * 这个函数在本地运行会拿到本地时间，但是放到服务器上，会正常运行！
+ */
+export function getServerTime() {
+  var xmlHttp: XMLHttpRequest
+  function srvTime() {
+    try {
+      // FF, Opera, Safari, Chrome
+      xmlHttp = new XMLHttpRequest()
+    } catch (err1) {
+      //IE
+      try {
+        xmlHttp = new ActiveXObject('Msxml2.XMLHTTP')
+      } catch (err2) {
+        try {
+          xmlHttp = new ActiveXObject('Microsoft.XMLHTTP')
+        } catch (eerr3) {
+          //AJAX not supported, use CPU time.
+          alert('AJAX not supported')
+        }
+      }
+    }
+    xmlHttp.open('HEAD', window.location.href.toString(), false)
+    xmlHttp.setRequestHeader('Content-Type', 'text/html')
+    xmlHttp.send('')
+    return xmlHttp.getResponseHeader('Date')
+  }
+
+  var st = srvTime()
+  var date = new Date(st as string)
+  var timestamp = date.getTime()
+  return timestamp
 }
