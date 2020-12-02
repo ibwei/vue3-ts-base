@@ -3,7 +3,7 @@ import { ConsoleStateType } from '@/store/modules/console/state'
 import { UserStateType } from '@/store/modules/user/state'
 
 // vuex模块的类型
-type ModuleType = {
+export type ModuleType = {
   app: AppStateType
   console: ConsoleStateType
   user: UserStateType

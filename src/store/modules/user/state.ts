@@ -1,4 +1,4 @@
-import { StateType } from '@types'
+import { StateType } from '@/@types'
 import { Module } from 'vuex'
 
 interface Token {

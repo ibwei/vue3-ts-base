@@ -86,7 +86,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, reactive, toRefs, onMounted } from 'vue'
-import { StateType } from '@types'
+import { StateType } from '@/@types'
 import { useStore } from 'vuex'
 import { setStoreState } from '@/store/utils'
 import { i18nInstance } from '@/i18n'

@@ -2,7 +2,7 @@ import { createStore, createLogger, Store } from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import mutations from './mutations'
 import modules from './modules'
-import { StateType } from '@types'
+import { StateType } from '@/@types'
 
 const store: Store<StateType> = createStore({
   strict: true,

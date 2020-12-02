@@ -1,13 +1,13 @@
 import Axios from './axios'
 import Store from '@/store'
-import { AddTeamGroupMemberParams } from '../../@types/index'
+import { AddTeamGroupMemberParams } from '@/@types/index'
 import { StaticConfig } from '@/config/app'
 import {
   HttpResponse,
   HttpListQuery,
   TeamMemberType,
   AddTeamGroupParams
-} from '../../@types/index'
+} from '@/@types/index'
 
 /**
  * @description 团队网络请求模块，所有跟团队相关的 api 放在此处

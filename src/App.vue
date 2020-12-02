@@ -12,7 +12,7 @@ import { computed, defineComponent } from 'vue'
 import AppLayout from '@/layout/AppLayout.vue'
 import { Locales } from '@/i18n/index'
 import { useStore } from 'vuex'
-import { StateType } from '@types'
+import { StateType } from '@/@types'
 
 const App = defineComponent({
   setup() {

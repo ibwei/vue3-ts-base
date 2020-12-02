@@ -1,4 +1,4 @@
-import { StateType } from '@types'
+import { StateType } from '@/@types'
 import { Module } from 'vuex'
 
 // 均放置跟控制台 UI 状态相关内容

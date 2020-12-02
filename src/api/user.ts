@@ -2,7 +2,7 @@
  * 所有跟用户相关的接口
  */
 
-import { HttpResponse } from '@types'
+import { HttpResponse } from '@/@types'
 import Axios from './axios'
 
 interface HttpParams {

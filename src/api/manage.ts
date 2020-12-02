@@ -2,7 +2,7 @@
  * 点击右上角头像跳转的所有管理页面接口
  */
 
-import { HttpResponse } from '@types'
+import { HttpResponse } from '@/@types'
 import Axios from './axios'
 
 /**
