@@ -1,3 +1,20 @@
+## [0.1.14](https://github.com/ibwei/vue3-base/compare/v0.1.10...v0.1.14) (2020-11-17)
+
+
+### Bug Fixes
+
+* **i18n:** 修复 antd-vue 语言国际化出错问题 ([1cd844d](https://github.com/ibwei/vue3-base/commit/1cd844d08d51b0dc115dbe47352caadd684380ef))
+* **i18n:** 修复 i18n修改 antdv组件国际化模版出错问题 ([003bccf](https://github.com/ibwei/vue3-base/commit/003bccfb3047d658a554a32a4dde117aeb5aee59))
+* **i18n:** 修复safari 不支持先行和后行断言的导致的白屏问题 ([384499b](https://github.com/ibwei/vue3-base/commit/384499be25429152a10a277049b391eae969e856))
+* **thme:** 修改 ant-design-vue自定义主题在 build 之后无法覆盖成功的问题 ([29a591d](https://github.com/ibwei/vue3-base/commit/29a591d0cf17429cb528f485171be3b6ae4f7ff8))
+
+
+### Performance Improvements
+
+* **vuex:** 增加 vuex 的模块示例 ([ed70e47](https://github.com/ibwei/vue3-base/commit/ed70e4785538ecf72cc80389cc02d65eefcfe97d))
+
+
+
 ## [0.1.13](https://github.com/ibwei/vue3-base/compare/v0.1.10...v0.1.13) (2020-11-09)
 
 
