@@ -1,6 +1,6 @@
 {
   "name": "vue3-base-type",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "一个使用vue3+typescript 搭建的项目基础架构类型声明库",
   "author": {
     "name": "ibwei",
@@ -11,7 +11,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0 -s",
     "commit": "npx cz",
     "docs": "typedoc --out ./docs/ ./src/ && npm run serve:docs",
     "serve:docs": "http-server ./docs -p 3001 -o",
