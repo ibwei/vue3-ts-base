@@ -89,10 +89,7 @@ class TeamService {
     const path = list.map(item => item.id).join(',')
     console.log('deletepath', path)
     return Axios(`/bus/teamMember/${path}`, {
-      method: 'delete',
-      params: {
-        teamId: Store.state.console.selectedTeam.id
-      }
+      method: 'delete'
     })
   }
 
