@@ -1,3 +1,23 @@
+## [0.1.17](https://github.com/ibwei/vue3-base/compare/v0.1.16...v0.1.17) (2020-12-08)
+
+
+### Bug Fixes
+
+* **eslint:** 修复 lint 错误 ([e072b49](https://github.com/ibwei/vue3-base/commit/e072b49bd6b3f707e88a8fbb8035667637d5816d))
+* **lint:** 修复 lint ([3f97086](https://github.com/ibwei/vue3-base/commit/3f97086e6918afb541afc3f53a97c2bf96dde174))
+
+
+
+## [0.1.16](https://github.com/ibwei/vue3-base/compare/v0.1.15...v0.1.16) (2020-12-02)
+
+
+### Bug Fixes
+
+* **api:** 缺少模块的错误 ([8170431](https://github.com/ibwei/vue3-base/commit/8170431f7835b523440c9945be7f2d0c6ccf8bd4))
+* **配置:** 添加静态配置 ([5c6cca5](https://github.com/ibwei/vue3-base/commit/5c6cca54464e8101c92e4e4cff3e8c1fb216b85a))
+
+
+
 ## [0.1.15](https://github.com/ibwei/vue3-base/compare/v0.1.10...v0.1.15) (2020-11-17)
 
 

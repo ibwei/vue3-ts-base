@@ -1,6 +1,6 @@
 {
   "name": "vue3-base-type",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "description": "一个使用vue3+typescript 搭建的项目基础架构类型声明库",
   "author": {
     "name": "ibwei",
