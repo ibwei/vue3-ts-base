@@ -32,6 +32,6 @@ const consoleGetter = {
   }
 }
 
-type ConsoleGetterType = typeof consoleGetter
-export { ConsoleGetterType }
+type ConsoleGettersType = typeof consoleGetter
+export { ConsoleGettersType }
 export default consoleGetter

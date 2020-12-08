@@ -91,6 +91,7 @@ import { useStore } from 'vuex'
 import { setStoreState } from '@/store/utils'
 import { i18nInstance } from '@/i18n'
 import ChangeLanguage from '@/components/ChangeLanguage.vue'
+import { AppStateType } from '@/store/modules/app/state'
 
 export default defineComponent({
   components: {
@@ -120,7 +121,7 @@ export default defineComponent({
     }
 
     const changeText = () => {
-      setStoreState('app', 'loadingText', state.globalLoadingText)
+      setStoreState<AppStateType>('app', 'loadingText', state.globalLoadingText)
       setStoreState('app', 'fullLoading', true)
       setTimeout(() => {
         setStoreState('app', 'fullLoading', false)

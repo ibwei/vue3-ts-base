@@ -11,6 +11,7 @@ type CommitNameType = AppStateType & ConsoleStateType & UserStateType
 
 /**
  * @description setStoreState -方法是一个 mutaitions 的操作
+ * @type {T} T - 你要更改的模块的类型
  * @param {string}  module - 要操作的state 的 module 名
  * @param {string}  key - 要操作的state 的 module 下的 key 值
  * @param {any} value - 当有 msg 参数时,视为赋值操作,触发 mutation,msg 则为要复制的数据.
@@ -24,17 +25,39 @@ type CommitNameType = AppStateType & ConsoleStateType & UserStateType
  *                 }
  *               }
  *   ```
- *  想要单独修改 firstName,直接使用 setStoreState('app','name',{firstName:'modifiedName',lastName:'Ma'})
+ *  想要单独修改 firstName,直接使用 setStoreState<AppStateType>('app','name',{firstName:'modifiedName',lastName:'Ma'})
  */
 
-export const setStoreState = (
+export function setStoreState<T>(
   module: ModuleNameType,
-  key: keyof CommitNameType,
+  key: keyof T,
   value: any
-) => {
+) {
   store.commit({
     type: module + '/__set',
     key: key,
     val: value
   })
+}
+
+/**
+ * @description 封装 dispatch 方法
+ * @type {T} T  你要派发actions的模块的类型
+ * @example 使用方法如下  const result = await dispatchActions<UserActionsType>('console','refreshToken',1)
+ */
+export function dispatchAction<T>(
+  module: ModuleNameType,
+  key: keyof T,
+  value?: any
+) {
+  store.dispatch(`${module}/${key}`, value)
+}
+
+/**
+ * @description 封装 dispatch 方法
+ * @type {T} T  你要获取 getters的模块的类型
+ * @example 使用方法如下  const result =  getStoreGetter<ConsoleGetterType>('console','list')
+ */
+export function getStoreGetter<T>(module: ModuleNameType, key: keyof T) {
+  store.getters[`${module}/${key}`]
 }

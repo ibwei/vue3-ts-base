@@ -13,7 +13,7 @@ import { CloudRoleService } from '../../../api/cloudrole'
  * @return status 返回状态  err_code：1，逻辑正确，err_code：0，发生错误。
  */
 
-export default {
+const consoleActions = {
   // 获取用户角色列表
   async getRoleList(): Promise<HttpResponse | number> {
     const res = await CommonService.getRoleInfoList()
@@ -104,3 +104,8 @@ export default {
     return 0
   }
 }
+
+type ConsoleActionsType = keyof typeof consoleActions
+
+export { ConsoleActionsType }
+export default consoleActions

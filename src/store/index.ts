@@ -3,6 +3,9 @@ import createPersistedState from 'vuex-persistedstate'
 import mutations from './mutations'
 import modules from './modules'
 import { StateType } from '@/@types'
+import { InjectionKey } from 'vue'
+
+export const key: InjectionKey<Store<StateType>> = Symbol()
 
 const store: Store<StateType> = createStore({
   strict: true,

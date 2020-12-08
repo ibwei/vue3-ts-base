@@ -1,12 +1,6 @@
 import { AppStateType } from '@/store/modules/app/state'
 import { ConsoleStateType } from '@/store/modules/console/state'
 import { UserStateType } from '@/store/modules/user/state'
-import { ConsoleGetterType } from '../store/modules/console/getters'
-
-// vuex getters 模块的类型
-type GetterType = {
-  console: ConsoleGetterType
-}
 
 // vuex state 的模块的类型
 type ModuleType = {

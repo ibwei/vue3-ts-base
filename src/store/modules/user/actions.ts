@@ -6,7 +6,7 @@ import Store from '@/store'
  * @return status 返回状态  err_code：1，逻辑正确，err_code：0，发生错误。
  */
 
-export default {
+const userActions = {
   // 刷新令牌
   refreshToken() {
     return UserService.refreshToken({
@@ -25,3 +25,8 @@ export default {
     })
   }
 }
+
+type UserActionsType = typeof userActions
+
+export { UserActionsType }
+export default userActions
