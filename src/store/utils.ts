@@ -59,5 +59,5 @@ export function dispatchAction<T>(
  * @example 使用方法如下  const result =  getStoreGetter<ConsoleGetterType>('console','list')
  */
 export function getStoreGetter<T>(module: ModuleNameType, key: keyof T) {
-  store.getters[`${module}/${key}`]
+  return store.getters[`${module}/${key}`]
 }
