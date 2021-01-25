@@ -14,19 +14,19 @@
 - 提交规范:git cz commitizen
 - 版本更改历史: changelog
 - 文档工具:typedoc
-- 代码检查:eslint+eslint-typescript,格式化:prettier.提交之前检查与修复：lint-staged"
+- 代码检查:eslint+eslint-typescript,格式化:prettier.提交之前检查与修复：lint-staged
 - 测试用例:mocha,ts-node
-- webpack 插件:style-resources-loader
+- webpack 插件:style-resources-loader（全局 less）webpack-bundle-analyzer（包分析工具） splitChunks（代码分离）
 
 #### 代码基础架构说明
 
 ```
 |-- 根目录
-    |-- @types 项目共用的 type
     |-- dist 项目 build 之后的文件夹
     |-- docs 文档生成的根目录位置
     |-- public 项目静态资源，不经过 webpack，以及默认的模版，适合存放第三方压缩好的资源
     |-- src 主要的开发目录
+    | |-- @types 项目共用的 type
     | |-- App.vue 页面渲染根节点
     | |-- main.ts 入口文件
     | |-- shims-vue.d.ts vue 文件类型的 type
@@ -101,7 +101,7 @@
 #### 网络请求
 
 - [x] 基于 axios 封装脱离具体业务逻辑的网络请求,支持编写脱离浏览器环境的测试用例.(跟业务无关)
-- [ ] 基于具体业务逻辑再次封装网络请求 (跟业务相关,此项需要依据具体后台应用接口编写)
+- [x] 基于具体业务逻辑再次封装网络请求 (跟业务相关,此项需要依据具体后台应用接口编写)
 
 #### 数据状态管理
 
@@ -184,6 +184,11 @@ npm run test-dev:api
 npm run test:api
 ```
 
+- 查看打包结果分析
+  
+``` 
+npm run analysis
+```
 ### 更多问题
 
 如果有问题，请提 issue 说明 => [传送门](https://github.com/ibwei/vue3-base).
