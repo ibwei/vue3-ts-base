@@ -1,6 +1,6 @@
 import { StateType } from '@/@types'
 import { Module } from 'vuex'
-
+import ModuleTeam from './modules/team/state'
 interface Token {
   [propertys: string]: any
 }
@@ -25,7 +25,10 @@ type UserStateType = typeof state
 
 const user: Module<UserStateType, StateType> = {
   namespaced: true,
-  ...state
+  ...state,
+  modules: {
+    team: ModuleTeam
+  }
 }
 
 export { UserStateType, state }

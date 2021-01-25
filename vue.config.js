@@ -1,3 +1,6 @@
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin
+
 const IS_DEV = process.env.NODE_ENV !== 'production'
 /**
  * @todo 开发环境配置
@@ -20,6 +23,9 @@ const DEVELOPMENT = webpackConfig => {
       chunksSortMode: 'none'
     })
   ])
+
+  // webpackConfig.plugin('BundleAnalyzerPlugin').use(BundleAnalyzerPlugin)
+
   return webpackConfig
 }
 
@@ -92,12 +98,59 @@ module.exports = {
    *  html-webpack-plugin插件配置详情见 https://github.com/jantimon/html-webpack-plugin#options
    */
   configureWebpack: config => {
-    if (!IS_DEV) {
-      config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
-      config.optimization.minimizer[0].options.terserOptions.sourceMap = false
+    config.optimization = {
+      splitChunks: {
+        chunks: 'all',
+        minSize: 3000, // （默认值：30000）块的最小大小。
+        minChunks: 1, //（默认值：1）在拆分之前共享模块的最小块数
+        maxAsyncRequests: 5, //（默认值为5）按需加载时并行请求的最大数量
+        maxInitialRequests: 6, // （默认值为3）入口点的最大并行请求数
+        automaticNameDelimiter: '-',
+        name: true,
+        cacheGroups: {
+          lodash: {
+            name: 'lodash',
+            test: /[\\/]node_modules[\\/]lodash[\\/]/,
+            priority: 20
+          },
+          vue: {
+            name: 'vue',
+            test: /[\\/]node_modules[\\/]vue[\\/]/
+          },
+          vuex: {
+            name: 'vuex',
+            test: /[\\/]node_modules[\\/]vuex[\\/]/
+          },
+          'vuex-presistedstate': {
+            name: 'vuex-presistedstate',
+            test: /[\\/]node_modules[\\/]vuex-presistedstate[\\/]/
+          },
+          'vue-router': {
+            name: 'vue-router',
+            test: /[\\/]node_modules[\\/]vue-router[\\/]/
+          },
+          'ant-design-vue': {
+            name: 'ant-design-vue',
+            test: /[\\/]node_modules[\\/]ant-design-vue[\\/]/
+          },
+          moment: {
+            name: 'moment',
+            test: /[\\/]node_modules[\\/]moment[\\/]/,
+            priority: 40
+          }
+        }
+      }
     }
   },
   chainWebpack: config => {
+    config.resolve.symlinks(true)
+
+    config.plugin('webpack-report').use(BundleAnalyzerPlugin, [
+      {
+        analyzerMode: 'static'
+      }
+    ])
+
     IS_DEV ? DEVELOPMENT(config) : PRODUCTION(config)
   },
   productionSourceMap: false,

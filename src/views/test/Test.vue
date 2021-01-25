@@ -99,6 +99,10 @@ export default defineComponent({
   },
   setup() {
     const store = useStore<StateType>()
+    console.log('-------------')
+    console.log(store.state)
+    // vuex三级module
+    console.log(store.state.user)
 
     onMounted(() => {
       console.log(store.state.app.language)
