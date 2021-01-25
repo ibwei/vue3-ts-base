@@ -1,4 +1,17 @@
-## [0.1.17](https://github.com/ibwei/vue3-base/compare/v0.1.16...v0.1.17) (2020-12-08)
+## [0.1.18](https://github.com/ibwei/vue3-base/compare/v0.1.17...v0.1.18) (2021-01-25)
+
+* **vuex:** 完善 webpack 配置，完成分离第三包，减小 vendors 体积，优化加载速度
+
+## [0.1.17](https://github.com/ibwei/vue3-base/compare/0.1.17...v0.1.17) (2021-01-25)
+
+
+### Bug Fixes
+
+* **vuex:** 修复 vuex 的 getter 工具函数缺少返回值的问题 ([8f32cdb](https://github.com/ibwei/vue3-base/commit/8f32cdb1c8c2e1ddd3e1aa9c494d93980fb63a2d))
+
+
+
+## [0.1.17](https://github.com/ibwei/vue3-base/compare/v0.1.16...0.1.17) (2020-12-08)
 
 
 ### Bug Fixes
