@@ -1,6 +1,6 @@
-## [0.1.18](https://github.com/ibwei/vue3-base/compare/v0.1.17...v0.1.18) (2021-01-25)
+## [0.1.20](https://github.com/ibwei/vue3-base/compare/v0.1.17...v0.1.20) (2021-01-27)
 
-* **vuex:** 完善 webpack 配置，完成分离第三包，减小 vendors 体积，优化加载速度
+
 
 ## [0.1.17](https://github.com/ibwei/vue3-base/compare/0.1.17...v0.1.17) (2021-01-25)
 
