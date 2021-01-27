@@ -145,11 +145,9 @@ module.exports = {
   chainWebpack: config => {
     config.resolve.symlinks(true)
 
-    config.plugin('webpack-report').use(BundleAnalyzerPlugin, [
-      {
-        analyzerMode: 'static'
-      }
-    ])
+    if (process.env.use_analyzer) {
+      config.plugin('webpack-bundle-analyzer').use(BundleAnalyzerPlugin)
+    }
 
     IS_DEV ? DEVELOPMENT(config) : PRODUCTION(config)
   },

@@ -19,7 +19,7 @@
     "test-dev:unit": "vue-cli-service  test:unit --watch",
     "test:api": "vue-cli-service test:unit ./tests/api/*.spec.ts",
     "test-dev:api": "vue-cli-service test:unit ./tests/api/*.spec.ts --watch",
-    "analysis": "vue-cli-service build --stats-json"
+    "analysis": "cross-env use_analyzer=true vue-cli-service build"
   },
   "main": "dist/index.js",
   "files": [
@@ -81,7 +81,8 @@
     "typescript": "~3.9.3",
     "vue-cli-plugin-style-resources-loader": "~0.1.4",
     "vue-property-decorator": "^9.0.0",
-    "webpack-bundle-analyzer": "^4.3.0"
+    "webpack-bundle-analyzer": "^4.3.0",
+    "cross-env": "^7.0.3"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
