@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 /** 自动加载其他路由模块 */
 const files = require.context('.', true, /\.ts$/)
 const modules: Array<RouteRecordRaw> = []
-files.keys().forEach(key => {
+files.keys().forEach((key) => {
   if (key === './index.ts') return
   modules.push(files(key).default)
 })

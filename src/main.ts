@@ -21,7 +21,4 @@ loadAllPlugins(app)
 /** 自动注册全局组件  */
 registeGlobalComponent(app)
 
-app
-  .use(store)
-  .use(router)
-  .mount('#app')
+app.use(store).use(router).mount('#app')

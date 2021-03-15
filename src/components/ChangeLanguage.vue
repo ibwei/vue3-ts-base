@@ -2,7 +2,7 @@
   <a-dropdown :trigger="['click']">
     <a
       class="ant-dropdown-link"
-      @click="e => e.preventDefault()"
+      @click="(e) => e.preventDefault()"
       :style="{ color: titleColor, fontSize: titleSize }"
     >
       {{ i18n.languageName }}<DownOutlined
@@ -47,9 +47,9 @@ export default defineComponent({
   },
   setup() {
     const { i18n } = i18nInstance
-    const changeLanguage = e => {
+    const changeLanguage = (e) => {
       const lang = e.key
-      setLang(lang).then(result => {
+      setLang(lang).then((result) => {
         if (result === lang) {
           message.success(
             `${i18n.value['Current Language:']} ${i18n.value.languageName}`

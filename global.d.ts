@@ -1,4 +1,4 @@
-import { StateType } from '@types'
+import { StateType } from '@/@types'
 import { Message } from 'ant-design-vue/types/message'
 import { Router, RouteLocationNormalizedLoaded } from 'vue-router'
 import { Store } from 'vuex'
@@ -12,6 +12,8 @@ declare module '@vue/runtime-core' {
     $router: Router
   }
 }
+
+declare module '*.tsx'
 
 declare global {
   interface X {

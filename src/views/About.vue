@@ -1,7 +1,5 @@
 <template>
-  <div ref="root" class="about">
-    about.page
-  </div>
+  <div ref="root" class="about">about.page</div>
 </template>
 
 <script lang="ts">

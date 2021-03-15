@@ -5,13 +5,15 @@ const consoleGetter = {
   // 获取云角色列表
   getTeamClouldList() {
     // 获取用户列表以及云角色列表
-    const memberList = store.state.console.selectedTeamMemberList.map(item => {
-      let cloudRoleList: number[] = []
-      if (item.cloudRole) {
-        cloudRoleList = item.cloudRole.split(',').map(id => Number(id))
+    const memberList = store.state.console.selectedTeamMemberList.map(
+      (item) => {
+        let cloudRoleList: number[] = []
+        if (item.cloudRole) {
+          cloudRoleList = item.cloudRole.split(',').map((id) => Number(id))
+        }
+        return { ...item, cloudRoleList: cloudRoleList }
       }
-      return { ...item, cloudRoleList: cloudRoleList }
-    })
+    )
 
     const cloudRoleList = [...store.state.console.selectedTeamCloudRoleList]
 

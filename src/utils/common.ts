@@ -73,7 +73,7 @@ export function loadScript(url: string) {
       script.type = 'text/javascript'
       if (script.readyState) {
         //IE
-        script.onreadystatechange = function() {
+        script.onreadystatechange = function () {
           if (
             script.readyState == 'loaded' ||
             script.readyState == 'complete'
@@ -84,7 +84,7 @@ export function loadScript(url: string) {
         }
       } else {
         //Others: Firefox, Safari, Chrome, and Opera
-        script.onload = function() {
+        script.onload = function () {
           Promise.resolve(0)
         }
       }
@@ -351,7 +351,7 @@ export const isIphonex = () => {
     const { devicePixelRatio, screen } = window
     const { width, height } = screen
     return xSeriesConfig.some(
-      item =>
+      (item) =>
         item.devicePixelRatio === devicePixelRatio &&
         item.width === width &&
         item.height === height
@@ -522,10 +522,7 @@ export function createPassword(len: number) {
     'Z'
   ]
   var special = ['-', '_', '#']
-  var config = num
-    .concat(english)
-    .concat(ENGLISH)
-    .concat(special)
+  var config = num.concat(english).concat(ENGLISH).concat(special)
 
   //先放入一个必须存在的
   var arr = []

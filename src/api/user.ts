@@ -103,7 +103,6 @@ class UserService {
       method: 'post',
       responseType: 'json',
       params: {
-        // eslint-disable-next-line @typescript-eslint/camelcase
         grant_type: 'refresh_token',
         ...params
       }

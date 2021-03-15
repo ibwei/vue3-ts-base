@@ -1,7 +1,5 @@
 <template>
-  <div>
-    contact.page
-  </div>
+  <div>contact.page</div>
 </template>
 
 <script lang="ts">

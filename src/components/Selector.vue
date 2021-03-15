@@ -75,21 +75,6 @@ import { BasicUserType, RoleType, StateType } from '@/@types'
 import { useStore } from 'vuex'
 import { message } from 'ant-design-vue'
 
-interface ListItem {
-  id: number
-  name: string
-  avatar: string
-}
-
-interface State {
-  optionsUp: boolean
-  checkAll: boolean
-  indeterminate: boolean
-  inAdd: boolean
-  inSearch: boolean
-  keyword: string
-}
-
 export default defineComponent({
   name: 'Selector',
   components: { CloseOutlined },
@@ -218,7 +203,7 @@ export default defineComponent({
 
     // 搜索选项是否被选中
     const isChecked = (id: number) => {
-      return state.selectedData.filter(item => item.userId == id).length !== 0
+      return state.selectedData.filter((item) => item.userId == id).length !== 0
     }
 
     /**
@@ -233,7 +218,7 @@ export default defineComponent({
         state.selectedData = [...state.selectedData, data]
       } else {
         state.selectedData = [...state.selectedData].filter(
-          item => item.userId !== data.userId
+          (item) => item.userId !== data.userId
         )
       }
 
@@ -244,7 +229,7 @@ export default defineComponent({
       searchRef.value.focus()
 
       const deleteList = rawList
-        .map(item => {
+        .map((item) => {
           if (!find(state.selectedData, ['userId', item.userId])) {
             return item
           }
@@ -252,7 +237,7 @@ export default defineComponent({
         .filter((item: any) => Boolean(item))
 
       const addList = state.selectedData
-        .map(item => {
+        .map((item) => {
           if (!find(rawList, ['userId', item.userId])) {
             return item
           }

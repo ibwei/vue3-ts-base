@@ -7,6 +7,7 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue'
 
+// 混合 Compostion API 和 Options API 写法，不推荐在生产环境这样做
 const AboutMe = defineComponent({
   setup() {
     onMounted(() => {
@@ -25,10 +26,7 @@ const AboutMe = defineComponent({
   },
   methods: {
     caculatePageName(): string {
-      return this.book.pageName
-        .split('-')
-        .reverse()
-        .join()
+      return this.book.pageName.split('-').reverse().join()
     }
   }
 })

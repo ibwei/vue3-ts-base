@@ -4,7 +4,7 @@
     <a-card class="card">
       <div class="icon-lists">
         <h2>IconFont组件测试：</h2>
-        <IconFont type="iconcheck1" style="color:#f00;font-size:20px;" />
+        <IconFont type="iconcheck1" style="color: #f00; font-size: 20px" />
       </div>
     </a-card>
     <a-card class="card">
@@ -17,7 +17,7 @@
           >
         </a-col>
         <a-col :span="10" :offset="4">
-          <a-button @click="openPartLoading" style="margin-left:30px;"
+          <a-button @click="openPartLoading" style="margin-left: 30px"
             >局部加载
           </a-button>
         </a-col>
@@ -25,7 +25,7 @@
     </a-card>
     <a-card class="card">
       <h2>i18n-语言国际化测试</h2>
-      <div style="margin:20px 0px;">
+      <div style="margin: 20px 0px">
         <span>更改语言：</span
         ><ChangeLanguage textColor="#000" titleColor="#000" />
       </div>

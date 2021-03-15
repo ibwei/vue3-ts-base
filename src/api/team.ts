@@ -85,7 +85,7 @@ class TeamService {
 
   // 批量删除团队成员
   static deleteMember(list: TeamMemberType[]): Promise<HttpResponse> {
-    const path = list.map(item => item.id).join(',')
+    const path = list.map((item) => item.id).join(',')
     console.log('deletepath', path)
     return Axios(`/bus/teamMember/${path}`, {
       method: 'delete'

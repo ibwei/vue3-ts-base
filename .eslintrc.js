@@ -1,4 +1,3 @@
-
 module.exports = {
   root: true,
   parserOptions: {
@@ -20,7 +19,8 @@ module.exports = {
     '@typescript-eslint/class-name-casing': 'off',
     'vue/valid-v-slot': 'off',
     'no-debugger': 'off',
-    'vue/experimental-script-setup-vars': 'off'
+    'vue/experimental-script-setup-vars': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off'
   },
   extends: [
     'plugin:vue/vue3-essential',

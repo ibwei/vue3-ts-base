@@ -12,7 +12,7 @@
     <div class="operate">
       <div class="icon">
         <IconFont type="iconleft" @click="prev" />
-        <IconFont type="iconright" @click="next" style="margin-left:120px" />
+        <IconFont type="iconright" @click="next" style="margin-left: 120px" />
       </div>
     </div>
   </div>
