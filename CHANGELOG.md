@@ -1,4 +1,9 @@
-## [0.1.20](https://github.com/ibwei/vue3-base/compare/v0.1.17...v0.1.20) (2021-01-27)
+## [0.1.20](https://github.com/ibwei/vue3-base/compare/v0.1.17...v0.1.20) (2021-03-15)
+
+
+### Features
+
+* **tsx:** 增加 tsx 测试用例以及更新 ts 版本&相关依赖 ([cc0e198](https://github.com/ibwei/vue3-base/commit/cc0e198c4ee9fdb171d102bba194d817446b16ff))
 
 
 
