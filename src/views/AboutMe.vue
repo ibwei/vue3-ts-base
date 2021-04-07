@@ -14,7 +14,9 @@ const AboutMe = defineComponent({
       console.log('mounted is creatd')
     })
     const root = ref(null)
-    return { root }
+    return {
+      root
+    }
   },
   data() {
     return {
@@ -26,7 +28,10 @@ const AboutMe = defineComponent({
   },
   methods: {
     caculatePageName(): string {
-      return this.book.pageName.split('-').reverse().join()
+      return this.book.pageName
+        .split('-')
+        .reverse()
+        .join()
     }
   }
 })

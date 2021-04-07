@@ -48,12 +48,8 @@ export const i18nInstance = useI18n({
  * @description 自动加载 antd-vue 需要的语言模版
  */
 function loadAtdLocales() {
-  const files = require.context(
-    '../../node_modules/ant-design-vue/es/locale-provider',
-    true,
-    /\.js$/
-  )
-  files.keys().forEach((key) => {
+  const files = require.context('../../node_modules/ant-design-vue/es/locale-provider', true, /\.js$/)
+  files.keys().forEach(key => {
     const fileName = key.slice(2, key.lastIndexOf('.'))
     if (includes(TranslateTable, fileName)) {
       const localeKey = findKeyByValue(TranslateTable, fileName)
@@ -84,9 +80,7 @@ function _set(lang: keyof typeof TranslateTable): keyof typeof TranslateTable {
  * @param {string} lang - 将要更换的语言
  * @return {string} lang - 返回将要更改的语言明后才能
  */
-export function setLang(
-  lang: string
-): Promise<keyof typeof TranslateTable | 'same'> {
+export function setLang(lang: string): Promise<keyof typeof TranslateTable | 'same'> {
   if (lang === i18nInstance.locale.value) {
     return Promise.resolve('same')
   }

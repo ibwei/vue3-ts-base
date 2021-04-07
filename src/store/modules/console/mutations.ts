@@ -11,10 +11,7 @@ export default {
     const currentPath = router.currentRoute.value.fullPath
     const newBackPathList = [...backPathList]
 
-    if (
-      backPathList.length < 0 ||
-      backPathList[backPathList.length - 1] !== currentPath
-    ) {
+    if (backPathList.length < 0 || backPathList[backPathList.length - 1] !== currentPath) {
       newBackPathList.push(currentPath)
     }
 

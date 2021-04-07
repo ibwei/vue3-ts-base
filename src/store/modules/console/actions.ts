@@ -26,10 +26,7 @@ const consoleActions = {
   },
 
   // 获取团队列表
-  async getTeamList(
-    context: Store<StateType>,
-    params: HttpListQuery
-  ): Promise<HttpResponse | number> {
+  async getTeamList(context: Store<StateType>, params: HttpListQuery): Promise<HttpResponse | number> {
     const res = await TeamService.list({ ...params })
     if (res.status === 200) {
       const data = res.data.data
@@ -40,30 +37,17 @@ const consoleActions = {
   },
 
   // 获取某个团队的所有成员信息
-  async getTeamMemberList(
-    context: Store<StateType>,
-    id: number
-  ): Promise<HttpResponse | number> {
+  async getTeamMemberList(context: Store<StateType>, id: number): Promise<HttpResponse | number> {
     const res = await TeamService.memberList(id as number)
     if (res.status === 200) {
-      const memberList = res.data.data.rows.filter((item: any) =>
-        [
-          RoleType['团队超级管理员'],
-          RoleType['团队成员'],
-          RoleType['团队访客'],
-          RoleType['团队管理员']
-        ].includes(item.roleId)
-      )
+      const memberList = res.data.data.rows.filter((item: any) => [RoleType['团队超级管理员'], RoleType['团队成员'], RoleType['团队访客'], RoleType['团队管理员']].includes(item.roleId))
       setStoreState('console', 'selectedTeamMemberList', memberList)
     }
     return 0
   },
 
   // 获取某个团队的详细信息
-  async getTeamDetail(
-    context: Store<StateType>,
-    id: number
-  ): Promise<HttpResponse | number> {
+  async getTeamDetail(context: Store<StateType>, id: number): Promise<HttpResponse | number> {
     console.log('chufa')
     const res = await TeamService.detail(id)
     if (res.status === 200) {
@@ -89,10 +73,7 @@ const consoleActions = {
   },
 
   // 获取当前选择团队下所有的云角色列表
-  async getTeamCloudRoleList(
-    context: Store<StateType>,
-    teamId: number
-  ): Promise<HttpResponse | number> {
+  async getTeamCloudRoleList(context: Store<StateType>, teamId: number): Promise<HttpResponse | number> {
     console.log(`id=${teamId}`)
     const res = await CloudRoleService.list(teamId)
     if (res.status === 200) {
