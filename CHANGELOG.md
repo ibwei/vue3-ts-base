@@ -1,3 +1,12 @@
+## [0.1.21](https://github.com/ibwei/vue3-base/compare/v0.1.20...v0.1.21) (2021-04-07)
+
+
+### Features
+
+* **commitlint:** add commitlint ([2296748](https://github.com/ibwei/vue3-base/commit/22967485380f76e25f9821055d83efe2b6c3db92))
+
+
+
 ## [0.1.20](https://github.com/ibwei/vue3-base/compare/v0.1.17...v0.1.20) (2021-03-15)
 
 
