@@ -1,6 +1,6 @@
 {
   "name": "vue3-base-type",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "一个使用vue3+typescript 搭建的项目基础架构类型声明库",
   "author": {
     "name": "ibwei",
@@ -85,12 +85,10 @@
     "vue-cli-plugin-style-resources-loader": "~0.1.4",
     "webpack-bundle-analyzer": "^4.3.0"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
   "lint-staged": {
     "src/**/*.{jsx,txs,ts,js,json,vue,md}": [
-      "vue-cli-service lint"
+      "vue-cli-service lint",
+      "git add"
     ]
   },
   "browserslist": [
