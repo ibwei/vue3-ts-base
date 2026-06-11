@@ -1,12 +1,7 @@
 import Axios from './axios'
 import { AddTeamGroupMemberParams } from '@/@types/index'
 import { StaticConfig } from '@/config/app'
-import {
-  HttpResponse,
-  HttpListQuery,
-  TeamMemberType,
-  AddTeamGroupParams
-} from '@/@types/index'
+import { HttpResponse, HttpListQuery, TeamMemberType, AddTeamGroupParams } from '@/@types/index'
 
 /**
  * @description 团队网络请求模块，所有跟团队相关的 api 放在此处
@@ -85,7 +80,7 @@ class TeamService {
 
   // 批量删除团队成员
   static deleteMember(list: TeamMemberType[]): Promise<HttpResponse> {
-    const path = list.map((item) => item.id).join(',')
+    const path = list.map(item => item.id).join(',')
     console.log('deletepath', path)
     return Axios(`/bus/teamMember/${path}`, {
       method: 'delete'
@@ -127,9 +122,7 @@ class TeamService {
     })
   }
   // 添加团队成员
-  static addTeamGroupMember(
-    data: AddTeamGroupMemberParams[]
-  ): Promise<HttpResponse> {
+  static addTeamGroupMember(data: AddTeamGroupMemberParams[]): Promise<HttpResponse> {
     return Axios(`/bus/userGroup/userGroupMember`, {
       method: 'post',
       data

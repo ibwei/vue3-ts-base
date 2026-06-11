@@ -1,16 +1,10 @@
 <template>
   <div class="display-panel">
     <div class="left">
-      <img class="img" :src="list[activeIndex].image" alt="" />
+      <img v-if="activeItem" class="img" :src="activeItem.image" alt="" />
     </div>
     <div class="right">
-      <div
-        class="r-list-item"
-        :class="{ active: index === activeIndex }"
-        v-for="(item, index) of list"
-        :key="index"
-        @mouseenter="changeActiveIndex(index)"
-      >
+      <div class="r-list-item" :class="{ active: index === activeIndex }" v-for="(item, index) of list" :key="index" @mouseenter="changeActiveIndex(index)">
         <img :src="item.icon" alt="" v-if="index !== activeIndex" />
         <span class="sub-title-1">{{ item.title }}</span>
       </div>
@@ -22,10 +16,10 @@
 interface ListItem {
   icon: string
   title: string
-  imageUrl: string
+  image: string
 }
 
-import { defineComponent, PropType, ref } from 'vue'
+import { computed, defineComponent, PropType, ref } from 'vue'
 export default defineComponent({
   props: {
     list: {
@@ -33,15 +27,19 @@ export default defineComponent({
       required: true
     }
   },
-  setup() {
+  setup(props) {
     const activeIndex = ref(0)
+    const activeItem = computed(() => props.list[activeIndex.value])
 
     const changeActiveIndex = (index: number) => {
-      activeIndex.value = index
+      if (index >= 0 && index < props.list.length) {
+        activeIndex.value = index
+      }
     }
 
     return {
       changeActiveIndex,
+      activeItem,
       activeIndex
     }
   }

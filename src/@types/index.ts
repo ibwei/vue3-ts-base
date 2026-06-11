@@ -21,13 +21,7 @@ export declare interface ApiResponse {
 }
 
 // ant-design-button 颜色
-export type ButtonColorType =
-  | 'primary'
-  | 'danger'
-  | 'dashed'
-  | 'ghost'
-  | 'default'
-  | 'link'
+export type ButtonColorType = 'primary' | 'danger' | 'dashed' | 'ghost' | 'default' | 'link'
 
 // icon的类型
 export type IconType = 'icon' | 'iconfont'

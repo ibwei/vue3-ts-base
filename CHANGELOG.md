@@ -1,3 +1,17 @@
+## [0.2.0](https://github.com/ibwei/vue3-ts-base/compare/v0.1.21...v0.2.0) (2026-06-11)
+
+### Features
+
+* restore active maintenance documentation and contribution flow
+* add reproducible npm registry configuration, CI validation, issue templates, and security policy
+
+### Bug Fixes
+
+* replace unstable sample tests with local deterministic checks
+* fix layout fullscreen initialization and utility/component type issues
+
+
+
 ## [0.1.21](https://github.com/ibwei/vue3-base/compare/v0.1.20...v0.1.21) (2021-04-07)
 
 
@@ -151,6 +165,5 @@
 * **完善 type:** 将第三方库的类型添加到每一个 vue 组件实例中去 ([13b84ab](https://github.com/ibwei/vue3-base/commit/13b84ab084ee388e114618db31ab801d28143bdf))
 * **补全基础代码:** 更换 types 位置,增加 layout 文件,修复 docs 文档,修改 tsconfig 配置等 ([d56645f](https://github.com/ibwei/vue3-base/commit/d56645fcf33959bcf57453690201be3cdd55620c))
 * **项目搭建:** 初步完成除了UI 库以外的基础配置 ([f3da208](https://github.com/ibwei/vue3-base/commit/f3da208fa7bcd9141c829327cf949aaf486a0ce7))
-
 
 

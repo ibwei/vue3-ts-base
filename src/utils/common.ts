@@ -24,14 +24,8 @@ export const canEditTeam = computed(() => {
   if (store.state.user.userDetail.type === 0) {
     return true
   }
-  const canEditTeamRoleList = [
-    RoleType['超级管理员'],
-    RoleType['团队超级管理员'],
-    RoleType['团队管理员']
-  ]
-  if (
-    canEditTeamRoleList.includes(store.state.user.currentTeamRoleId as number)
-  ) {
+  const canEditTeamRoleList = [RoleType['超级管理员'], RoleType['团队超级管理员'], RoleType['团队管理员']]
+  if (canEditTeamRoleList.includes(store.state.user.currentTeamRoleId as number)) {
     return true
   }
   return false
@@ -67,32 +61,19 @@ export const getGroupName = (key: number): string => {
  * @returns { promise<any>}} promise
  */
 export function loadScript(url: string) {
-  return new Promise(() => {
-    try {
-      const script: any = document.createElement('script')
-      script.type = 'text/javascript'
-      if (script.readyState) {
-        //IE
-        script.onreadystatechange = function () {
-          if (
-            script.readyState == 'loaded' ||
-            script.readyState == 'complete'
-          ) {
-            script.onreadystatechange = null
-            Promise.resolve(0)
-          }
-        }
-      } else {
-        //Others: Firefox, Safari, Chrome, and Opera
-        script.onload = function () {
-          Promise.resolve(0)
-        }
+  return new Promise<HTMLScriptElement>((resolve, reject) => {
+    const script: any = document.createElement('script')
+    script.type = 'text/javascript'
+    script.onload = () => resolve(script)
+    script.onerror = () => reject(new Error(`Failed to load script: ${url}`))
+    script.onreadystatechange = () => {
+      if (script.readyState === 'loaded' || script.readyState === 'complete') {
+        script.onreadystatechange = null
+        resolve(script)
       }
-      script.src = url
-      document.body.appendChild(script)
-    } catch (e) {
-      Promise.reject(e)
     }
+    script.src = url
+    document.body.appendChild(script)
   })
 }
 
@@ -102,10 +83,7 @@ export function loadScript(url: string) {
  * @param {string} value - 要查找的值
  * @returns {string} key  返回的 key
  */
-export function findKeyByValue(
-  target: { [key: string]: string },
-  value: string
-): string {
+export function findKeyByValue(target: { [key: string]: string }, value: string): string {
   const keys = Reflect.ownKeys(target) as Array<string>
   for (let i = 0; i < keys.length; i++) {
     if (target[keys[i]] === value) {
@@ -187,10 +165,10 @@ export function getMousePos(event: any) {
 /* eslint-disable */
 export function HtmlEncode(text: string) {
   return text
-    .replace(/&/g, '&')
-    .replace(/\"/g, '"')
-    .replace(/</g, '<')
-    .replace(/>/g, '>')
+    .replace(/&/g, '&amp;')
+    .replace(/\"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
 }
 
 // base64 encode

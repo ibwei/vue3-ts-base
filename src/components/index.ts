@@ -12,11 +12,9 @@ const IconFont: any = createFromIconfontCN({
  * @param {vue} app 当前应用实例
  * @returns {void} void
  */
-export function registeGlobalComponent(
-  app: ReturnType<typeof createApp>
-): void {
+export function registeGlobalComponent(app: ReturnType<typeof createApp>): void {
   const files = require.context('./global', true, /\.(vue|ts)$/)
-  files.keys().forEach((key) => {
+  files.keys().forEach(key => {
     const config = files(key)
     const name = kebabCase(key.replace(/^\.\//, '').replace(/\.\w+$/, ''))
     app.component(name, config.default || config)

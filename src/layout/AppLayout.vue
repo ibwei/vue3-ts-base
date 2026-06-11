@@ -4,10 +4,7 @@
     <div class="app-content" v-else>
       <app-header />
       <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/tsxtest">tsx页面</router-link> |
-        <router-link to="/about">About</router-link> |
-        <router-link to="/contact">Contact</router-link> |
+        <router-link to="/">Home</router-link> | <router-link to="/tsxtest">tsx页面</router-link> | <router-link to="/about">About</router-link> | <router-link to="/contact">Contact</router-link> |
         <router-link to="/tests">组件测试</router-link>
       </div>
       <router-view />
@@ -16,10 +13,10 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import AppFooter from './Footer.vue'
 import AppHeader from './Header.vue'
-import { defineComponent, ref, watch } from 'vue'
+import { computed, defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
 
 export default defineComponent({
@@ -28,11 +25,8 @@ export default defineComponent({
     AppHeader
   },
   setup() {
-    const fullScreenMode = ref(true)
     const router = useRouter()
-    watch(router.currentRoute, () => {
-      fullScreenMode.value = Boolean(router.currentRoute.value.meta?.fullScreen)
-    })
+    const fullScreenMode = computed(() => Boolean(router.currentRoute.value.meta && router.currentRoute.value.meta.fullScreen))
 
     return {
       fullScreenMode

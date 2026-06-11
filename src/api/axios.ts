@@ -75,26 +75,25 @@ service.interceptors.request.use(async (config: AxiosRequestConfig) => {
   if (config.url === '/auth/oauth/token') {
     let userAccount = ''
     // 若存在username，则为登录情况，判断user-account
-    if (config.params.username) {
-      userAccount = config.params.username.includes('-')
-        ? 'ACCOUNT_USER'
-        : 'ADMIN_USER'
+    if (config.params && config.params.username) {
+      userAccount = config.params.username.includes('-') ? 'ACCOUNT_USER' : 'ADMIN_USER'
     } else {
       // 刷新token情况，通过用户信息email是否有值判断
-      userAccount = Store.state.user.userDetail.email
-        ? 'ADMIN_USER'
-        : 'ACCOUNT_USER'
+      userAccount = Store.state.user.userDetail.email ? 'ADMIN_USER' : 'ACCOUNT_USER'
     }
 
     config.headers['User-Account'] = userAccount
     config.headers.Authorization = 'Basic ZmViczoxMjM0NTY='
   } else {
     // 如果保存有token，则取，否则不添加Authorization
-    if (localStorage.vuex && JSON.parse(localStorage.vuex).user?.token) {
-      const token = Store.state.user?.token
-      const tokenType = token.token_type
-      const accessToken = token.access_token
-      config.headers.Authorization = `${tokenType} ${accessToken}`
+    const persistedState = localStorage.vuex ? JSON.parse(localStorage.vuex) : null
+    if (persistedState && persistedState.user && persistedState.user.token) {
+      const token = Store.state.user && Store.state.user.token
+      if (token) {
+        const tokenType = token.token_type
+        const accessToken = token.access_token
+        config.headers.Authorization = `${tokenType} ${accessToken}`
+      }
     }
   }
 
@@ -124,16 +123,14 @@ service.interceptors.response.use(
     }
 
     if (error.response) {
-      __emsg = error.response.data.message
-        ? error.response.data.message
-        : error.response.data.data
+      __emsg = error.response.data.message ? error.response.data.message : error.response.data.data
     }
     // timeout
     if (__emsg.indexOf('timeout') >= 0) {
       __emsg = 'timeout'
     }
 
-    if (error?.response?.status === 401) {
+    if (error.response && error.response.status === 401) {
       if (router.currentRoute.value.path !== '/entry/login') {
         message.info('登录凭证已过期，请重新登录')
         router.push('/entry/login')

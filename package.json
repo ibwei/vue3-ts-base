@@ -1,25 +1,27 @@
 {
-  "name": "vue3-base-type",
-  "version": "0.1.22",
-  "description": "一个使用vue3+typescript 搭建的项目基础架构类型声明库",
+  "name": "vue3-ts-base",
+  "version": "0.2.0",
+  "description": "Vue 3 + TypeScript project starter with routing, state, i18n, Ant Design Vue, tests, and CI.",
   "author": {
     "name": "ibwei",
     "email": "997132391@qq.com",
     "url": "http://me.ibwei.com"
   },
   "scripts": {
-    "serve": "vue-cli-service serve --stats-json",
-    "build": "vue-cli-service build",
+    "serve": "cross-env NODE_OPTIONS=--openssl-legacy-provider vue-cli-service serve --stats-json",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "lint:ci": "vue-cli-service lint --no-fix",
+    "validate": "npm run lint:ci && npm run test:unit && npm run build",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0 -s",
     "commit": "npx cz",
     "docs": "typedoc --out ./docs/ ./src/ && npm run serve:docs",
     "serve:docs": "http-server ./docs -p 3001 -o",
-    "test:unit": "vue-cli-service test:unit",
-    "test-dev:unit": "vue-cli-service  test:unit --watch",
-    "test:api": "vue-cli-service test:unit ./tests/api/*.spec.ts",
-    "test-dev:api": "vue-cli-service test:unit ./tests/api/*.spec.ts --watch",
-    "analysis": "cross-env use_analyzer=true vue-cli-service build",
+    "test:unit": "cross-env NODE_OPTIONS=--openssl-legacy-provider vue-cli-service test:unit",
+    "test-dev:unit": "cross-env NODE_OPTIONS=--openssl-legacy-provider vue-cli-service test:unit --watch",
+    "test:api": "cross-env NODE_OPTIONS=--openssl-legacy-provider vue-cli-service test:unit ./tests/api/*.spec.ts",
+    "test-dev:api": "cross-env NODE_OPTIONS=--openssl-legacy-provider vue-cli-service test:unit ./tests/api/*.spec.ts --watch",
+    "analysis": "cross-env NODE_OPTIONS=--openssl-legacy-provider use_analyzer=true vue-cli-service build",
     "prepare": "husky install"
   },
   "main": "dist/index.js",
@@ -86,9 +88,8 @@
     "webpack-bundle-analyzer": "^4.3.0"
   },
   "lint-staged": {
-    "src/**/*.{jsx,txs,ts,js,json,vue,md}": [
-      "vue-cli-service lint",
-      "git add"
+    "src/**/*.{jsx,tsx,ts,js,json,vue,md}": [
+      "vue-cli-service lint"
     ]
   },
   "browserslist": [
@@ -104,7 +105,15 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ibwei/vue3-base"
+    "url": "git+https://github.com/ibwei/vue3-ts-base.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ibwei/vue3-ts-base/issues"
+  },
+  "homepage": "https://ibwei.github.io/vue3-ts-base/",
+  "packageManager": "npm@10.8.2",
+  "engines": {
+    "node": ">=18"
   },
   "types": "./@types/index.d.ts"
 }

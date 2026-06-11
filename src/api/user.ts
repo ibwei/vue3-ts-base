@@ -103,7 +103,7 @@ class UserService {
       method: 'post',
       responseType: 'json',
       params: {
-        grant_type: 'refresh_token',
+        ['grant_type']: 'refresh_token',
         ...params
       }
     })

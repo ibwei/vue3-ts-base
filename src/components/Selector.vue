@@ -2,53 +2,21 @@
   <div class="selector" ref="selectorRef">
     <div class="main">
       <span class="title main-item">{{ title }}</span>
-      <a-button class="addBtn main-item" @click="handleAdd" :disabled="inAdd"
-        >添加</a-button
-      >
-      <div
-        class="selected-item main-item"
-        v-for="data in selectedData"
-        :key="data.userId"
-        @click="checkItem(data)"
-      >
+      <a-button class="addBtn main-item" @click="handleAdd" :disabled="inAdd">添加</a-button>
+      <div class="selected-item main-item" v-for="data in selectedData" :key="data.userId" @click="checkItem(data)">
         <img class="avatar" :src="data.avatar" alt="" />
         <span class="name">{{ getFormatName(data) }}</span>
         <CloseOutlined class="removeBtn" />
       </div>
-      <a-input
-        class="main-item"
-        placeholder="搜索"
-        v-model:value="keyword"
-        @click="handleSearchClick"
-        @input="handleSearch"
-        ref="searchRef"
-      ></a-input>
+      <a-input class="main-item" placeholder="搜索" v-model:value="keyword" @click="handleSearchClick" @input="handleSearch" ref="searchRef"></a-input>
     </div>
-    <div
-      class="options"
-      ref="optionsRef"
-      v-show="optionsVisible"
-      :class="optionsUp ? 'optionsUp' : 'optionsDown'"
-    >
+    <div class="options" ref="optionsRef" v-show="optionsVisible" :class="optionsUp ? 'optionsUp' : 'optionsDown'">
       <a-empty v-if="optionsData.length === 0" />
       <div v-else>
-        <a-checkbox
-          class="option-item"
-          v-if="inAdd"
-          v-model:checked="checkAll"
-          :indeterminate="indeterminate"
-          @change="onCheckAllChange"
-        >
+        <a-checkbox class="option-item" v-if="inAdd" v-model:checked="checkAll" :indeterminate="indeterminate" @change="onCheckAllChange">
           全选
         </a-checkbox>
-        <a-checkbox
-          class="option-item"
-          v-for="data in optionsData"
-          :key="data.userId"
-          :disabled="!canChoose(data)"
-          :checked="isChecked(data.userId) || checkAll"
-          @change="checkItem(data)"
-        >
+        <a-checkbox class="option-item" v-for="data in optionsData" :key="data.userId" :disabled="!canChoose(data)" :checked="isChecked(data.userId) || checkAll" @change="checkItem(data)">
           <img class="avatar" :src="data.avatar" alt="" />
           <span class="name">{{ getFormatName(data) }}</span>
         </a-checkbox>
@@ -58,17 +26,7 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  PropType,
-  reactive,
-  ref,
-  toRefs,
-  computed,
-  onUnmounted,
-  onMounted,
-  nextTick
-} from 'vue'
+import { defineComponent, PropType, reactive, ref, toRefs, computed, onUnmounted, onMounted, nextTick } from 'vue'
 import { CloseOutlined } from '@ant-design/icons-vue'
 import { find } from 'lodash'
 import { BasicUserType, RoleType, StateType } from '@/@types'
@@ -123,9 +81,7 @@ export default defineComponent({
       if (state.inAdd) {
         return props.list
       } else if (state.inSearch) {
-        return props.list.filter((item: any) =>
-          item.username.toLowerCase().includes(state.keyword.toLowerCase())
-        )
+        return props.list.filter((item: any) => item.username.toLowerCase().includes(state.keyword.toLowerCase()))
       } else {
         return []
       }
@@ -183,10 +139,7 @@ export default defineComponent({
       if (user.userId === item.userId) {
         return false
       }
-      if (
-        item.roleId == RoleType['超级管理员'] ||
-        item.roleId == RoleType['团队超级管理员']
-      ) {
+      if (item.roleId == RoleType['超级管理员'] || item.roleId == RoleType['团队超级管理员']) {
         return false
       }
       return true
@@ -194,16 +147,14 @@ export default defineComponent({
 
     const changeSelectAllStatus = () => {
       nextTick(() => {
-        state.indeterminate =
-          state.selectedData.length > 0 &&
-          state.selectedData.length < props.list.length
+        state.indeterminate = state.selectedData.length > 0 && state.selectedData.length < props.list.length
         state.checkAll = state.selectedData.length === props.list.length
       })
     }
 
     // 搜索选项是否被选中
     const isChecked = (id: number) => {
-      return state.selectedData.filter((item) => item.userId == id).length !== 0
+      return state.selectedData.filter(item => item.userId == id).length !== 0
     }
 
     /**
@@ -217,9 +168,7 @@ export default defineComponent({
       if (!isChecked(data.userId)) {
         state.selectedData = [...state.selectedData, data]
       } else {
-        state.selectedData = [...state.selectedData].filter(
-          (item) => item.userId !== data.userId
-        )
+        state.selectedData = [...state.selectedData].filter(item => item.userId !== data.userId)
       }
 
       changeSelectAllStatus()
@@ -229,7 +178,7 @@ export default defineComponent({
       searchRef.value.focus()
 
       const deleteList = rawList
-        .map((item) => {
+        .map(item => {
           if (!find(state.selectedData, ['userId', item.userId])) {
             return item
           }
@@ -237,7 +186,7 @@ export default defineComponent({
         .filter((item: any) => Boolean(item))
 
       const addList = state.selectedData
-        .map((item) => {
+        .map(item => {
           if (!find(rawList, ['userId', item.userId])) {
             return item
           }
@@ -251,8 +200,7 @@ export default defineComponent({
      * 点击全选
      */
     const onCheckAllChange = () => {
-      state.selectedData =
-        props.list.length === state.selectedData.length ? [] : [...props.list]
+      state.selectedData = props.list.length === state.selectedData.length ? [] : [...props.list]
       state.indeterminate = false
       context.emit('list-change', {
         addList: state.selectedData,
@@ -275,10 +223,7 @@ export default defineComponent({
      * 删除最后一项
      */
     const deleteLastData = () => {
-      state.selectedData = [...state.selectedData].slice(
-        0,
-        state.selectedData.length - 1
-      )
+      state.selectedData = [...state.selectedData].slice(0, state.selectedData.length - 1)
       changeSelectAllStatus()
     }
 
@@ -295,11 +240,7 @@ export default defineComponent({
      * 处理键盘按下事件监听
      */
     const handleKeydownListen = (e: any) => {
-      if (
-        (searchRef.value as any).isFocused &&
-        e.keyCode === 8 &&
-        state.keyword === ''
-      ) {
+      if ((searchRef.value as any).isFocused && e.keyCode === 8 && state.keyword === '') {
         deleteLastData()
       }
     }

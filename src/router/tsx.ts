@@ -4,8 +4,7 @@ import { RouteRecordRaw } from 'vue-router'
 const AboutRouter: RouteRecordRaw = {
   path: '/tsxtest',
   name: 'tsxtest',
-  component: () =>
-    import(/* webpackChunkName: "tsxtest" */ '@/views/TsxPage.tsx')
+  component: () => import(/* webpackChunkName: "tsxtest" */ '@/views/TsxPage.tsx')
 }
 
 export default AboutRouter

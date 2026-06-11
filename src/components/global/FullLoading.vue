@@ -50,9 +50,7 @@ export default defineComponent({
   }
 }
 .ant-spin {
-  font-family: Monospaced Number, Chinese Quote, -apple-system,
-    BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB,
-    Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: Monospaced Number, Chinese Quote, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.65);
@@ -66,12 +64,10 @@ export default defineComponent({
   text-align: center;
   opacity: 0;
   position: absolute;
-  -webkit-transition: -webkit-transform 0.3s
-    cubic-bezier(0.78, 0.14, 0.15, 0.86);
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
   transition: -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
   transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
-  transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86),
-    -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+  transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86), -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
   display: none;
 }
 .ant-spin-spinning {

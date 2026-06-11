@@ -12,23 +12,16 @@
       <full-loading :show="partLoading" :text="loadingText" />
       <a-row class="row" type="flex" justify="center" align="top">
         <a-col :span="10">
-          <a-button type="primary" @click="openFullLoading"
-            >全局加载 3 秒</a-button
-          >
+          <a-button type="primary" @click="openFullLoading">全局加载 3 秒</a-button>
         </a-col>
         <a-col :span="10" :offset="4">
-          <a-button @click="openPartLoading" style="margin-left: 30px"
-            >局部加载
-          </a-button>
+          <a-button @click="openPartLoading" style="margin-left: 30px">局部加载 </a-button>
         </a-col>
       </a-row>
     </a-card>
     <a-card class="card">
       <h2>i18n-语言国际化测试</h2>
-      <div style="margin: 20px 0px">
-        <span>更改语言：</span
-        ><ChangeLanguage textColor="#000" titleColor="#000" />
-      </div>
+      <div style="margin: 20px 0px"><span>更改语言：</span><ChangeLanguage textColor="#000" titleColor="#000" /></div>
       <a-row class="row" type="flex" justify="center" align="top">
         <a-col :span="12">
           <p>i18n 语言国际化效果</p>
@@ -68,9 +61,7 @@
                   <a-input v-model:value="globalLoadingText" />
                 </a-col>
                 <a-col :span="6">
-                  <a-button type="success" @click="changeText"
-                    >更改并打开</a-button
-                  >
+                  <a-button type="success" @click="changeText">更改并打开</a-button>
                 </a-col>
               </a-row>
             </a-form-item>

@@ -1,5 +1,4 @@
-import { StateType, TeamListType, RoleItemType, BasicUserType } from '@/@types'
-import { Module } from 'vuex'
+import { TeamListType, RoleItemType, BasicUserType } from '@/@types'
 import { CloudRoleItem } from '@/@types/index'
 
 // 均放置跟控制台 UI 状态相关内容
@@ -23,10 +22,5 @@ const state = {
 
 type ConsoleStateType = typeof state
 
-const console: Module<ConsoleStateType, StateType> = {
-  namespaced: true,
-  ...state
-}
-
 export { ConsoleStateType, state }
-export default console
+export default state

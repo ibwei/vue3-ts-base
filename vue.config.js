@@ -98,6 +98,13 @@ module.exports = {
    *  html-webpack-plugin插件配置详情见 https://github.com/jantimon/html-webpack-plugin#options
    */
   configureWebpack: config => {
+    if (process.env.NODE_ENV === 'test') {
+      config.optimization = {
+        splitChunks: false
+      }
+      return
+    }
+
     config.optimization = {
       splitChunks: {
         chunks: 'all',
@@ -144,6 +151,7 @@ module.exports = {
   },
   chainWebpack: config => {
     config.resolve.symlinks(true)
+    config.resolve.alias.set('indexof', 'component-indexof')
 
     if (process.env.use_analyzer) {
       config.plugin('webpack-bundle-analyzer').use(BundleAnalyzerPlugin)

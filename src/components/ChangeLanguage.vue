@@ -1,19 +1,9 @@
 <template>
   <a-dropdown :trigger="['click']">
-    <a
-      class="ant-dropdown-link"
-      @click="(e) => e.preventDefault()"
-      :style="{ color: titleColor, fontSize: titleSize }"
-    >
-      {{ i18n.languageName }}<DownOutlined
-    /></a>
+    <a class="ant-dropdown-link" @click="e => e.preventDefault()" :style="{ color: titleColor, fontSize: titleSize }"> {{ i18n.languageName }}<DownOutlined /></a>
     <template v-slot:overlay>
       <a-menu class="dropdown-panel">
-        <a-menu-item
-          v-for="(value, key) of LanguageNameList"
-          :key="key"
-          @click="changeLanguage"
-        >
+        <a-menu-item v-for="(value, key) of LanguageNameList" :key="key" @click="changeLanguage">
           <span :style="{ color: textColor }">{{ LanguageNameList[key] }}</span>
         </a-menu-item>
       </a-menu>
@@ -47,13 +37,11 @@ export default defineComponent({
   },
   setup() {
     const { i18n } = i18nInstance
-    const changeLanguage = (e) => {
+    const changeLanguage = e => {
       const lang = e.key
-      setLang(lang).then((result) => {
+      setLang(lang).then(result => {
         if (result === lang) {
-          message.success(
-            `${i18n.value['Current Language:']} ${i18n.value.languageName}`
-          )
+          message.success(`${i18n.value['Current Language:']} ${i18n.value.languageName}`)
         }
       })
     }

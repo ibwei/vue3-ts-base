@@ -22,11 +22,7 @@ type ModuleNameType = 'app' | 'console' | 'user'
  *  想要单独修改 firstName,直接使用 setStoreState<AppStateType>('app','name',{firstName:'modifiedName',lastName:'Ma'})
  */
 
-export function setStoreState<T>(
-  module: ModuleNameType,
-  key: keyof T,
-  value: any
-) {
+export function setStoreState<T>(module: ModuleNameType, key: keyof T, value: any) {
   store.commit({
     type: module + '/__set',
     key: key,
@@ -39,11 +35,7 @@ export function setStoreState<T>(
  * @type {T} T  你要派发actions的模块的类型
  * @example 使用方法如下  const result = await dispatchActions<UserActionsType>('console','refreshToken',1)
  */
-export function dispatchAction<T>(
-  module: ModuleNameType,
-  key: keyof T,
-  value?: any
-) {
+export function dispatchAction<T>(module: ModuleNameType, key: keyof T, value?: any) {
   store.dispatch(`${module}/${key}`, value)
 }
 

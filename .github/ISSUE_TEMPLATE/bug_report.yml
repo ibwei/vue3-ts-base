@@ -1,0 +1,39 @@
+name: Bug report
+description: Report a reproducible problem in the template
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What went wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: List the exact steps or provide a minimal reproduction.
+      placeholder: |
+        1. Clone the repo
+        2. Run npm ci
+        3. Run npm run serve
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+    validations:
+      required: true
+  - type: input
+    id: node
+    attributes:
+      label: Node.js Version
+      placeholder: "20.x"
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      placeholder: "Chrome, Safari, Firefox, Edge"

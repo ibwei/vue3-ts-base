@@ -12,7 +12,7 @@ const userActions = {
     return UserService.refreshToken({
       // eslint-disable-next-line
       refresh_token: Store.state.user.token.refresh_token
-    }).then((res) => {
+    }).then(res => {
       // token过期时间
       const expireTime = res.data.expires_in * 1000 + new Date().getTime()
       setStoreState('user', 'token', { ...res.data, expireTime })
@@ -20,7 +20,7 @@ const userActions = {
   },
   // 获取用户信息
   getUserDetail() {
-    return UserService.getUserDetail().then((res) => {
+    return UserService.getUserDetail().then(res => {
       setStoreState('user', 'userDetail', res.data.data)
     })
   }

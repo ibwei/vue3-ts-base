@@ -1,14 +1,46 @@
 import { expect, assert } from 'chai'
 import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+import ImageDisplay from '@/components/ImageDisplay.vue'
+import Home from '@/views/Home.vue'
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      props: { msg }
+const globalContext = globalThis as any
+if (typeof globalContext.SVGElement === 'undefined') {
+  globalContext.SVGElement = globalContext.Element
+}
+
+describe('Home.vue', () => {
+  it('renders the home page and exposes the sample method', () => {
+    const wrapper = shallowMount(Home)
+
+    expect(wrapper.text()).to.include('home.page')
+    expect((wrapper.vm as any).hello()).to.equal('nihao')
+  })
+})
+
+describe('ImageDisplay.vue', () => {
+  const list = [
+    {
+      icon: '/first-icon.png',
+      title: 'First',
+      image: '/first-image.png'
+    },
+    {
+      icon: '/second-icon.png',
+      title: 'Second',
+      image: '/second-image.png'
+    }
+  ]
+
+  it('renders the active image and updates it on hover', async () => {
+    const wrapper = shallowMount(ImageDisplay, {
+      props: { list }
     })
-    expect(wrapper.text()).to.include(msg)
+
+    expect(wrapper.find('.img').attributes('src')).to.eq('/first-image.png')
+
+    await wrapper.findAll('.r-list-item')[1].trigger('mouseenter')
+
+    expect(wrapper.find('.img').attributes('src')).to.eq('/second-image.png')
   })
 })
 
@@ -19,7 +51,9 @@ describe('基本的测试用例', () => {
     expect(foo).to.be.a('string')
     expect(foo).to.equal('bar')
     expect(foo).to.have.lengthOf(3)
-    expect(beverages).to.have.property('tea').with.lengthOf(3)
+    expect(beverages)
+      .to.have.property('tea')
+      .with.lengthOf(3)
   })
   it('asset检测基本用例是否正确', () => {
     const foo = 'bar',

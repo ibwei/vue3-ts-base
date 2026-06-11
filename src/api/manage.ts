@@ -83,9 +83,7 @@ class ManageService {
   }
 
   // 创建子账号
-  static createSubAccount(
-    params: CreateSubAccountParams
-  ): Promise<HttpResponse> {
+  static createSubAccount(params: CreateSubAccountParams): Promise<HttpResponse> {
     return Axios('/bus/subAccount', {
       method: 'post',
       responseType: 'json',
@@ -94,9 +92,7 @@ class ManageService {
   }
 
   // 获取子账号列表
-  static getSubAccountList(
-    params: GetSubAccountListParams
-  ): Promise<HttpResponse> {
+  static getSubAccountList(params: GetSubAccountListParams): Promise<HttpResponse> {
     return Axios('/bus/subAccount/list', {
       method: 'get',
       responseType: 'json',
@@ -105,9 +101,7 @@ class ManageService {
   }
 
   // 重置子账号密码
-  static resetSubAccountPassword(
-    params: ResetSubAccountPasswordParams
-  ): Promise<HttpResponse> {
+  static resetSubAccountPassword(params: ResetSubAccountPasswordParams): Promise<HttpResponse> {
     return Axios('/bus/subAccount/password/reset', {
       method: 'put',
       responseType: 'json',
@@ -116,9 +110,7 @@ class ManageService {
   }
 
   // 冻结子账号
-  static frezeeSubAccount(
-    params: FrezeeSubAccountParams
-  ): Promise<HttpResponse> {
+  static frezeeSubAccount(params: FrezeeSubAccountParams): Promise<HttpResponse> {
     return Axios('/bus/subAccount/lock', {
       method: 'put',
       responseType: 'json',
